@@ -1,4 +1,4 @@
-name: Deploy Website and Build Docs
+name: CI
 
 on:
   push:
@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  build-website:
+  website:
+    name: Build and Deploy Website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,7 +29,8 @@ jobs:
         with:
           path: ./dist
 
-  build-docs:
+  docs:
+    name: Build Documentation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
