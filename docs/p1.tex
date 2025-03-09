@@ -98,6 +98,12 @@ Se han añadido modificaciones para que se limpien los directorios de caché y d
 
 \subsection{Configuración de Pre y Post Procesadores}\label{subsec:configuracion-de-pre-y-post-procesadores}
 
+El siguiente paso ha sido ajustar la configuración de \lstinline|browserslist| tal y como se propone en la documentación.
+Luego, se ha ajustado para que el bundle final generado sea compatible con navegadores desde 2011.
+Esta configuración probablemente sea demasiado agresiva, ya que muchos de esos navegadores están en desuso, pero se ha ajustado así para comprobar que Parcel realiza las transformaciones necesarias para que el código sea compatible con navegadores antiguos.
 
+Se ha comprobado que funciona correctamente.
+Parcel ha generado dos bundles de JavaScript, uno pensado para navegadores recientes que tengan soporte de módulos de EcmaScript 2015, y otro bundle para navegadores antiguos que no soporten módulos.
+Ambos scripts están referenciados desde el \lstinline|index.html|, y se cargan automáticamente en función de las capacidades del navegador.
 
 \end{document}
