@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "parcel:dev": "parcel",
-    "parcel:build": "parcel build --public-url hhyc-dramosac",
+    "parcel:build": "parcel build --public-url .",
     "clean": "rimraf dist .parcel-cache",
     "start": "npm-run-all clean parcel:dev",
     "build": "npm-run-all clean parcel:build",
