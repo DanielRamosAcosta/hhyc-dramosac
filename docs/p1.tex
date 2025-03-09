@@ -104,6 +104,46 @@ Esta configuración probablemente sea demasiado agresiva, ya que muchos de esos 
 
 Se ha comprobado que funciona correctamente.
 Parcel ha generado dos bundles de JavaScript, uno pensado para navegadores recientes que tengan soporte de módulos de EcmaScript 2015, y otro bundle para navegadores antiguos que no soporten módulos.
-Ambos scripts están referenciados desde el \lstinline|index.html|, y se cargan automáticamente en función de las capacidades del navegador.
+Ambos scripts están referenciados desde el \lstinline|index.html|, y se cargan automáticamente en función de las capacidades del navegador (ver Figura~\ref{fig:index-html}).
+
+\begin{figure}[h!]
+\begin{minted}{html}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My First Parcel App</title>
+    <link rel="stylesheet" href="/index.4c105ba5.css">
+    <script type="module" src="/index.9f6a43db.js"></script>
+    <script src="/index.4ab9977a.js" nomodule defer></script>
+</head>
+<body><h1>Hello UOC!</h1></body>
+</html>
+\end{minted}
+\caption{Hoja de estilos que incluye propiedades CSS que necesitarán prefijos}
+\label{fig:index-html}
+\end{figure}
+
+Para comprobar el correcto funcionamiento de PostCSS, se han modificado la hoja de estilos según el enunciado de forma que contiene reglas que deben incluir prefijos para ser compatibles con navegadores antiguos.
+
+Al construir la aplicación con Parcel, el fichero CSS resultante efectivamente contiene los prefijos necesarios para que las reglas sean compatibles con navegadores antiguos (ver Figura~\ref{fig:styles-css}).
+
+\begin{figure}[h!]
+\begin{minted}{css}
+body {
+  height: 100vh;
+  color: #1f1f1f;
+  background: linear-gradient(to bottom, #bada55, #c0ffee);
+}
+
+img {
+  user-select: none;
+}
+\end{minted}
+\caption{Hoja de estilos que incluye propiedades CSS que necesitarán prefijos}
+\label{fig:styles-css}
+\end{figure}
+
+
 
 \end{document}
