@@ -1,6 +1,9 @@
 name: CI
 
-# https://www.danielramos.me/hhyc-dramosac
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 on:
   push:
