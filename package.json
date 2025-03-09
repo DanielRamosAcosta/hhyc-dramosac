@@ -1,0 +1,14 @@
+{
+  "name": "hhyc-dramosac",
+  "version": "1.0.0",
+  "description": "Desarrollo de las prácticas HTML y CSS I",
+  "main": "index.js",
+  "scripts": {
+    "build:docs": "tectonic -Z shell-escape docs/p1.tex"
+  },
+  "author": "Daniel Ramos Acosta",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
