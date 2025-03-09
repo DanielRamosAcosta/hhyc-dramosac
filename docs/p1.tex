@@ -39,7 +39,7 @@ En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario 
 
 \section{Configurando el Entorno de Desarrollo}\label{sec:configurando-el-entorno-de-desarrollo}
 
-\subsection{Inicialización de Parcel}\label{subsec:inicializacion-de-parcel}
+\subsection{Estableciendo la Base del Proyecto}\label{subsec:estableciendo-la-base-del-proyecto}
 
 El primer paso ha sido inicializar el repositorio en el que se hará el desarrollo de la práctica con \lstinline|git init| y \lstinline|npm init|.
 
@@ -154,5 +154,109 @@ Una vez se ha construido la aplicación con Parcel, el botón se ha renderizado 
     \caption{Captura de pantalla del navegador con el botón renderizado correctamente}
     \label{fig:posthtml-include}
 \end{figure}
+
+\subsection{Configuración del Despliegue}\label{subsec:configuracion-del-despliegue}
+
+El siguiente paso ha sido configurar el despliegue automático de la web.
+En mi caso, he optado por usar Github Pages.
+Github Pages es un servicio gratuito de alojamiento web que ofrece Github, y que permite publicar páginas web estáticas directamente desde un repositorio de Github.
+Es una herramienta que he usado con anterioridad, y que resulta muy cómoda y fácil de configurar.
+En el caso de este proyecto, debemos configurar Github Pages para que publique usando Github Actions, ya que el proyecto requiere pasos previos de construcción.
+Para configurar el \textit{workflow}, he seguido la documentación oficial de la \textit{Action} \lstinline|upload-pages-artifact|, que proporciona un flujo de trabajo preconfigurado para publicar en Github Pages.
+En mi primer intento, la página web logró construirse correctamente, pero no llegó a publicarse ya que el \textit{workflow} falló en el paso de despliegue como se muestra en la Figura~\ref{fig:workflow-fail}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/workflow-failed}
+    \caption{Captura de pantalla del fallo en el \textit{workflow} de despliegue}
+    \label{fig:workflow-fail}
+\end{figure}
+
+Este fallo es un poco críptico, pero gracias a una respuesta de Stack Overflow (\href{https://stackoverflow.com/a/74167257}{enlace}), he podido identificar el problema.
+El problema es que el \textit{workflow} no tenía permisos para realizar la publicación, ya que es una acción de escritura.
+
+La solución ha consistido en otorgar los permisos de configuración y escritura a la \textit{Action} de Github Pages.
+El \textit{workflow} se puede ver en la Figura~\ref{fig:workflow}.
+
+\begin{figure}[h!]
+\begin{minted}{yaml}
+name: CI
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+on:
+  push:
+    branches:
+      - main
+jobs:
+  website:
+    name: Build Website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'current'
+      - run: npm install
+      - run: npm run build
+      - id: deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: website
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+\end{minted}
+\caption{Código de del \textit{workflow} para construir y desplegar la web}
+\label{fig:workflow}
+\end{figure}
+
+La \textit{Action} lo que hace es:
+
+\begin{enumerate}
+    \item Clonar el repositorio
+    \item Configurar la última versión LTS de Node.js
+    \item Instalar las dependencias
+    \item Construir la aplicación
+    \item Subir los archivos estáticos como un artefacto
+\end{enumerate}
+
+Luego, la \textit{Action} de despliegue se encarga de publicar los archivos en Github Pages.
+
+En cuanto se configuró correctamente, la página web logró verse en la URL \href{https://www.danielramos.me/hhyc-dramosac}, pero no se visualizaba correctamente ya que no cargaba la hoja de estilos como se puede ver en la Figura~\ref{fig:web-semi-deployed}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/web-semi-deployed}
+    \caption{Captura de pantalla de la web desplegada en Github Pages, donde se aprecia que no se cargan los estilos}
+    \label{fig:web-semi-deployed}
+\end{figure}
+
+
+Esto se debía a que la URL de la hoja de estilos, a pesar de que en local funcionaba, correctamente, como al desplegarse en Github Pages se hace en un subdirectorio, la URL relativa no era correcta.
+Para ello, Parcel tiene una opción llamada \lstinline|--public-url| que permite especificar la URL base de los recursos estáticos.
+He configurado esta opción para que la URL base sea \lstinline|./|, lo que hace que los recursos se carguen correctamente en Github Pages como se puede ver en la Figura~\ref{fig:web-deployed}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/web-deployed}
+    \caption{Captura de pantalla de la web desplegada en Github Pages, donde ahora sí cargan los estilos}
+    \label{fig:web-deployed}
+\end{figure}
+
+\subsection{Uso de GitHub Actions para la Construcción de la Documentación}\label{subsec:uso-de-github-actions-para-la-construccion-de-la-documentacion}
+
+He decidido crear la documentación de esta práctica usando \LaTeX, e intentar seguir de forma más exacta posible la documentación proporcionada en materia de buenas prácticas en la redacción de docuemntos técnicos.
+Este documento \LaTeX se puede construir desde local usando \textit{Tectonic}, un compilador de LaTeX basado en el lenguaje de programación Rust.
+Sin embargo, para facilitar la construcción de la documentación, he decidido usar Github Actions.
+Para llevar a cabo esta tarea, he usado la documentación proporcionada en el propio \lstinline|README.md| del repositorio de \textit{Tectonic} (\href{https://github.com/marketplace/actions/setup-tectonic}{enlace}).
 
 \end{document}
