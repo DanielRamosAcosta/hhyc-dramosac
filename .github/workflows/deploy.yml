@@ -1,5 +1,7 @@
 name: CI
 
+# https://www.danielramos.me/hhyc-dramosac
+
 on:
   push:
     branches:
@@ -28,6 +30,18 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: website
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   docs:
     name: Build Documentation
