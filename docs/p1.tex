@@ -144,6 +144,15 @@ img {
 \label{fig:styles-css}
 \end{figure}
 
+Por último, se ha instalado y configurado el plugin \lstinline|PostHTML Include|, que permite incluir fragmentos de HTML en otros ficheros HTML .
+De nuevo, para comprobar su correcto funcionamiento, se ha creado un componente de botón en un fichero HTML separado, y se ha incluido en el \lstinline|index.html| principal.
+Una vez se ha construido la aplicación con Parcel, el botón se ha renderizado correctamente en la página web (ver Figura~\ref{fig:posthtml-include}).
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/after-posthtml-include}
+    \caption{Captura de pantalla del navegador con el botón renderizado correctamente}
+    \label{fig:posthtml-include}
+\end{figure}
 
 \end{document}
