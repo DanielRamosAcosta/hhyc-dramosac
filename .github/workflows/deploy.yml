@@ -12,7 +12,7 @@ on:
 
 jobs:
   website:
-    name: Build and Deploy Website
+    name: Build Website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
