@@ -1,6 +1,9 @@
 {
   "name": "hhyc-dramosac",
   "source": "src/index.html",
+  "browserslist": [
+    "since 2011"
+  ],
   "scripts": {
     "parcel:dev": "parcel",
     "parcel:build": "parcel build",
