@@ -37,7 +37,9 @@ En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario 
 
 \newpage
 
-\section{Configurando el Entorno de Desarrollo}
+\section{Configurando el Entorno de Desarrollo}\label{sec:configurando-el-entorno-de-desarrollo}
+
+\subsection{Inicialización de Parcel}\label{subsec:inicializacion-de-parcel}
 
 El primer paso ha sido inicializar el repositorio en el que se hará el desarrollo de la práctica con \lstinline|git init| y \lstinline|npm init|.
 
@@ -64,5 +66,38 @@ Sin tener que refrescar el navegador, los cambios se han reflejado instantáneam
 
 Por último, siguiendo la guía, se han ajustado los scripts de \lstinline|package.json| para que sea más fácil ejecutar Parcel.
 Ahora, en lugar de tener que escribir \lstinline|npx parcel src/index.html|, se puede ejecutar \lstinline|npm run start| para iniciar el servidor de desarrollo, y \lstinline|npm run build| para compilar el proyecto para producción.
+
+Siguiendo con el enunciado del Módulo 2, se han ajustado una última vez los scripts del \lstinline|package.json|.
+Se han añadido modificaciones para que se limpien los directorios de caché y de producción antes de cada compilación tal y como se puede ver en la Figura \ref{fig:package-json}.
+
+\begin{figure}[h!]
+\begin{minted}{json}
+{
+  "name": "hhyc-dramosac",
+  "source": "src/index.html",
+  "scripts": {
+    "parcel:dev": "parcel",
+    "parcel:build": "parcel build",
+    "clean": "rimraf dist .parcel-cache",
+    "start": "npm-run-all clean parcel:dev",
+    "build": "npm-run-all clean parcel:build",
+    "build:docs": "tectonic -Z shell-escape docs/p1.tex"
+  },
+  "author": "Daniel Ramos Acosta",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.13.3",
+    "rimraf": "^6.0.1"
+  }
+}
+\end{minted}
+\caption{Versión final del \lstinline{package.json}}
+\label{fig:package-json}
+\end{figure}
+
+\subsection{Configuración de Pre y Post Procesadores}\label{subsec:configuracion-de-pre-y-post-procesadores}
+
+
 
 \end{document}
