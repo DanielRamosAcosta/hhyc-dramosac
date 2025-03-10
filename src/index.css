@@ -1,6 +1,26 @@
 .cards {
-  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   gap: 4rem;
+}
+
+.container {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.intro {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+  line-height: 2;
 }

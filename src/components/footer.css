@@ -1,0 +1,87 @@
+footer {
+  padding: 2rem 4rem 6rem 4rem;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  display: grid;
+  grid-template-areas:
+        "logo"
+        "copy"
+        "social-networks"
+        "legal";
+  justify-content: center;
+  justify-items: center;
+  grid-row-gap: 1.4rem;
+
+  @media (min-width: 1024px) {
+    grid-template-areas:
+            "logo social-networks"
+            "copy legal";
+    justify-items: initial;
+    justify-content: space-between;
+    grid-row-gap: 2rem;
+  }
+
+  .logo {
+    grid-area: logo;
+    font-family: "Sankofa Display", sans-serif;
+    font-size: 2rem;
+  }
+
+  .social-networks {
+    grid-area: social-networks;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .copy {
+    grid-area: copy;
+  }
+
+  .legal {
+    grid-area: legal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    li {
+      list-style: none;
+      font-size: 0.9rem;
+      position: relative;
+
+      @media (min-width: 1024px) {
+        &:not(:first-child)::before {
+          content: "|";
+          font-weight: 700;
+          position: absolute;
+          left: -0.9rem;
+        }
+      }
+
+      a {
+        color: inherit;
+        transition: color 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--color-green);
+        }
+      }
+    }
+  }
+}
