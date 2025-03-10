@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+
+  img {
+    display: block;
+    max-width:330px;
+    width: auto;
+    height: auto;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  text-align: center;
+  padding: 2rem 4rem 2.5rem;
+  background: var(--color-light);
+
+  @media(min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: block;
+    font-family: "Sankofa Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--color-dark);
+  }
+
+  nav  {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      list-style: none;
+
+      @media(min-width: 1024px) {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+
+      li {
+        display: flex;
+        position: relative;
+        justify-content: center;
+
+        @media(min-width: 1024px) {
+          &:not(:first-child)::before {
+            content: "|";
+            font-weight: 700;
+            position: absolute;
+            left: -1.3rem;
+          }
+        }
+      }
+    }
+
+    a {
+      display: block;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-dark);
+      transition: color 0.2s ease;
+      font-weight: 700;
+      font-size: 1rem;
+
+      &:hover {
+        color: var(--color-brown);
+        text-decoration: underline;
+      }
+    }
+  }
+}
