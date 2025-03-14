@@ -24,3 +24,13 @@ h2 {
   margin-bottom: 4rem;
   line-height: 2;
 }
+
+.trip {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    align-items: center;
+  }
+}
