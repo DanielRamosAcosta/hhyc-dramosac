@@ -1,0 +1,34 @@
+.paginator {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+
+  .page {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: var(--color-white);
+    background-color: var(--color-red);
+    border-radius: 50%;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
+  
+  .page[aria-current="page"] {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    cursor: default;
+    pointer-events: none;
+  } 
+}

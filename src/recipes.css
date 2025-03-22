@@ -1,0 +1,26 @@
+h1.title {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.recipes {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 2rem;
+
+    grid-template-columns: 1fr;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.paginator {
+    margin-bottom: 8rem;
+}
