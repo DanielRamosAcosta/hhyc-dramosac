@@ -1,5 +1,7 @@
 # Gofio y Mojo
 
+[![Main Workflow Status](https://github.com/danielramosacossta/hhyc-dramosac/actions/workflows/main.yml/badge.svg)](https://github.com/DanielRamosAcosta/hhyc-dramosac/actions)
+
 **Gofio y Mojo** es un proyecto web dedicado a la gastronomía canaria. Aquí encontrarás recetas tradicionales, información sobre ingredientes autóctonos y la historia detrás de los platos más representativos de las Islas Canarias.
 
 ## Características
