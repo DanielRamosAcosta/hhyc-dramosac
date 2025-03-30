@@ -33,7 +33,8 @@
 \newpage
 
 \section*{Introducción}
-En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario para trabajar con HTML y CSS. Esto incluye la instalación de editores de texto, navegadores web y otras herramientas útiles. Además, se ha desarrollado una página web sencilla para poner en práctica lo aprendido.
+
+En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario para trabajar con HTML y CSS. Esto incluye la instalación de editores de texto, navegadores web y otras herramientas útiles. Además, se ha desarrollado una página web sencilla para poner en práctica lo aprendido. Este documento detalla los pasos seguidos, las herramientas utilizadas y las configuraciones realizadas, proporcionando una guía completa para replicar el proceso.
 
 \newpage
 
@@ -41,11 +42,11 @@ En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario 
 
 \subsection{Estableciendo la Base del Proyecto}\label{subsec:estableciendo-la-base-del-proyecto}
 
-El primer paso ha sido inicializar el repositorio en el que se hará el desarrollo de la práctica con \lstinline|git init| y \lstinline|npm init|.
+El primer paso ha sido inicializar el repositorio en el que se hará el desarrollo de la práctica con \mintinline{bash}{git init} y \mintinline{bash}{npm init}. Esto asegura que el proyecto esté correctamente versionado y que se puedan gestionar las dependencias de manera eficiente.
 
-Siguiendo la guía de la web de parcel, lo siguiente ha sido instalar Parcel como dependencia del proyecto con \lstinline|npm install --save-dev parcel|.
+Siguiendo la guía de la web de Parcel, lo siguiente ha sido instalar Parcel como dependencia del proyecto con \mintinline{bash}{npm install --save-dev parcel}. Parcel es una herramienta moderna que simplifica la construcción y el empaquetado de aplicaciones web.
 
-Una vez instalado Parcel, se ha probado su correcto funcionamiento creando un \textit{Hello World}. Una vez creado el fichero \lstinline|src/index.html| se ha ejecutado el comando \lstinline|npx parcel src/index.html| y se ha comprobado que la página web de abría correctamente en el navegador como se ve en la Figura~\ref{fig:hello-world}.
+Una vez instalado Parcel, se ha probado su correcto funcionamiento creando un \textit{Hello World}. Para ello, se creó el fichero \mintinline{bash}{src/index.html} y se ejecutó el comando \mintinline{bash}{npx parcel src/index.html}. Esto permitió verificar que la página web se abría correctamente en el navegador, como se muestra en la Figura~\ref{fig:hello-world}.
 
  \begin{figure}[h!]
      \centering
@@ -54,8 +55,7 @@ Una vez instalado Parcel, se ha probado su correcto funcionamiento creando un \t
      \label{fig:hello-world}
  \end{figure}
 
-Se han realizado las modificaciones necesarias para incluir una hoja de estilos y script de ejemplos para comprobar que Parcel las procesa correctamente.
-Sin tener que refrescar el navegador, los cambios se han reflejado instantáneamente en la página web (ver Figura~\ref{fig:parcel}).
+Se realizaron las modificaciones necesarias para incluir una hoja de estilos y un script de ejemplo, comprobando que Parcel procesaba ambos correctamente. Sin necesidad de refrescar el navegador, los cambios se reflejaron instantáneamente en la página web (ver Figura~\ref{fig:parcel}). Esto demuestra la potencia de Parcel para agilizar el flujo de trabajo.
 
  \begin{figure}[h!]
      \centering
@@ -64,11 +64,7 @@ Sin tener que refrescar el navegador, los cambios se han reflejado instantáneam
      \label{fig:parcel}
  \end{figure}
 
-Por último, siguiendo la guía, se han ajustado los scripts de \lstinline|package.json| para que sea más fácil ejecutar Parcel.
-Ahora, en lugar de tener que escribir \lstinline|npx parcel src/index.html|, se puede ejecutar \lstinline|npm run start| para iniciar el servidor de desarrollo, y \lstinline|npm run build| para compilar el proyecto para producción.
-
-Siguiendo con el enunciado del Módulo 2, se han ajustado una última vez los scripts del \lstinline|package.json|.
-Se han añadido modificaciones para que se limpien los directorios de caché y de producción antes de cada compilación tal y como se puede ver en la Figura \ref{fig:package-json}.
+Por último, siguiendo el enunciado del Módulo 2, se ajustaron los scripts del \mintinline{bash}{package.json} para facilitar la ejecución de tareas comunes. Ahora, comandos como \mintinline{bash}{npm run start} y \mintinline{bash}{npm run build} simplifican el inicio del servidor de desarrollo y la compilación para producción, respectivamente. Además, se añadieron scripts para limpiar los directorios de caché y producción antes de cada compilación, como se muestra en la Figura~\ref{fig:package-json}.
 
 \begin{figure}[h!]
 \begin{minted}{json}
@@ -98,13 +94,9 @@ Se han añadido modificaciones para que se limpien los directorios de caché y d
 
 \subsection{Configuración de Pre y Post Procesadores}\label{subsec:configuracion-de-pre-y-post-procesadores}
 
-El siguiente paso ha sido ajustar la configuración de \lstinline|browserslist| tal y como se propone en la documentación.
-Luego, se ha ajustado para que el bundle final generado sea compatible con navegadores desde 2011.
-Esta configuración probablemente sea demasiado agresiva, ya que muchos de esos navegadores están en desuso, pero se ha ajustado así para comprobar que Parcel realiza las transformaciones necesarias para que el código sea compatible con navegadores antiguos.
+El siguiente paso fue ajustar la configuración de \mintinline{bash}{browserslist} para garantizar la compatibilidad con navegadores desde 2011. Aunque esta configuración puede ser demasiado amplia, permitió comprobar que Parcel realiza las transformaciones necesarias para soportar navegadores antiguos. Esto asegura que la web sea accesible para una mayor audiencia.
 
-Se ha comprobado que funciona correctamente.
-Parcel ha generado dos bundles de JavaScript, uno pensado para navegadores recientes que tengan soporte de módulos de EcmaScript 2015, y otro bundle para navegadores antiguos que no soporten módulos.
-Ambos scripts están referenciados desde el \lstinline|index.html|, y se cargan automáticamente en función de las capacidades del navegador (ver Figura~\ref{fig:index-html}).
+Se ha comprobado que funciona correctamente. Parcel ha generado dos bundles de JavaScript, uno pensado para navegadores recientes que tengan soporte de módulos de EcmaScript 2015, y otro bundle para navegadores antiguos que no soporten módulos. Ambos scripts están referenciados desde el \mintinline{bash}{index.html}, y se cargan automáticamente en función de las capacidades del navegador (ver Figura~\ref{fig:index-html}).
 
 \begin{figure}[h!]
 \begin{minted}{html}
@@ -124,9 +116,7 @@ Ambos scripts están referenciados desde el \lstinline|index.html|, y se cargan 
 \label{fig:index-html}
 \end{figure}
 
-Para comprobar el correcto funcionamiento de PostCSS, se han modificado la hoja de estilos según el enunciado de forma que contiene reglas que deben incluir prefijos para ser compatibles con navegadores antiguos.
-
-Al construir la aplicación con Parcel, el fichero CSS resultante efectivamente contiene los prefijos necesarios para que las reglas sean compatibles con navegadores antiguos (ver Figura~\ref{fig:styles-css}).
+Para comprobar el correcto funcionamiento de PostCSS, se modificó la hoja de estilos para incluir reglas que requieren prefijos para navegadores antiguos. Al construir la aplicación con Parcel, el fichero CSS resultante contenía los prefijos necesarios, como se muestra en la Figura~\ref{fig:styles-css}. Esto demuestra la utilidad de PostCSS para mantener la compatibilidad sin sacrificar la legibilidad del código.
 
 \begin{figure}[h!]
 \begin{minted}{css}
@@ -144,9 +134,7 @@ img {
 \label{fig:styles-css}
 \end{figure}
 
-Por último, se ha instalado y configurado el plugin \lstinline|PostHTML Include|, que permite incluir fragmentos de HTML en otros ficheros HTML .
-De nuevo, para comprobar su correcto funcionamiento, se ha creado un componente de botón en un fichero HTML separado, y se ha incluido en el \lstinline|index.html| principal.
-Una vez se ha construido la aplicación con Parcel, el botón se ha renderizado correctamente en la página web (ver Figura~\ref{fig:posthtml-include}).
+Por último, se ha instalado y configurado el plugin \mintinline{bash}{PostHTML Include}, que permite incluir fragmentos de HTML en otros ficheros HTML. De nuevo, para comprobar su correcto funcionamiento, se ha creado un componente de botón en un fichero HTML separado, y se ha incluido en el \mintinline{bash}{index.html} principal. Una vez se ha construido la aplicación con Parcel, el botón se ha renderizado correctamente en la página web (ver Figura~\ref{fig:posthtml-include}).
 
 \begin{figure}[h!]
     \centering
@@ -157,13 +145,9 @@ Una vez se ha construido la aplicación con Parcel, el botón se ha renderizado 
 
 \subsection{Configuración del Despliegue}\label{subsec:configuracion-del-despliegue}
 
-El siguiente paso ha sido configurar el despliegue automático de la web.
-En mi caso, he optado por usar Github Pages.
-Github Pages es un servicio gratuito de alojamiento web que ofrece Github, y que permite publicar páginas web estáticas directamente desde un repositorio de Github.
-Es una herramienta que he usado con anterioridad, y que resulta muy cómoda y fácil de configurar.
-En el caso de este proyecto, debemos configurar Github Pages para que publique usando Github Actions, ya que el proyecto requiere pasos previos de construcción.
-Para configurar el \textit{workflow}, he seguido la documentación oficial de la \textit{Action} \lstinline|upload-pages-artifact|, que proporciona un flujo de trabajo preconfigurado para publicar en Github Pages.
-En mi primer intento, la página web logró construirse correctamente, pero no llegó a publicarse ya que el \textit{workflow} falló en el paso de despliegue como se muestra en la Figura~\ref{fig:workflow-fail}.
+El despliegue automático de la web se configuró utilizando Github Pages, un servicio gratuito que permite publicar páginas web estáticas directamente desde un repositorio. Esto simplifica enormemente el proceso de publicación y asegura que la web esté siempre actualizada.
+
+El siguiente paso ha sido configurar el despliegue automático de la web. En mi caso, he optado por usar Github Pages. Github Pages es un servicio gratuito de alojamiento web que ofrece Github, y que permite publicar páginas web estáticas directamente desde un repositorio de Github. Es una herramienta que he usado con anterioridad, y que resulta muy cómoda y fácil de configurar. En el caso de este proyecto, debemos configurar Github Pages para que publique usando Github Actions, ya que el proyecto requiere pasos previos de construcción. Para configurar el \textit{workflow}, he seguido la documentación oficial de la \textit{Action} \mintinline{bash}{upload-pages-artifact}, que proporciona un flujo de trabajo preconfigurado para publicar en Github Pages. En mi primer intento, la página web logró construirse correctamente, pero no llegó a publicarse ya que el \textit{workflow} falló en el paso de despliegue como se muestra en la Figura~\ref{fig:workflow-fail}.
 
 \begin{figure}[h!]
     \centering
@@ -172,11 +156,9 @@ En mi primer intento, la página web logró construirse correctamente, pero no l
     \label{fig:workflow-fail}
 \end{figure}
 
-Este fallo es un poco críptico, pero gracias a una respuesta de Stack Overflow (\href{https://stackoverflow.com/a/74167257}{enlace}), he podido identificar el problema.
-El problema es que el \textit{workflow} no tenía permisos para realizar la publicación, ya que es una acción de escritura.
+Este fallo es un poco críptico, pero gracias a una respuesta de Stack Overflow (\href{https://stackoverflow.com/a/74167257}{enlace}), he podido identificar el problema. El problema es que el \textit{workflow} no tenía permisos para realizar la publicación, ya que es una acción de escritura.
 
-La solución ha consistido en otorgar los permisos de configuración y escritura a la \textit{Action} de Github Pages.
-El \textit{workflow} se puede ver en la Figura~\ref{fig:workflow}.
+La solución ha consistido en otorgar los permisos de configuración y escritura a la \textit{Action} de Github Pages. El \textit{workflow} se puede ver en la Figura~\ref{fig:workflow}.
 
 \begin{figure}[h!]
 \begin{minted}{yaml}
@@ -240,10 +222,7 @@ En cuanto se configuró correctamente, la página web logró verse en la URL \hr
     \label{fig:web-semi-deployed}
 \end{figure}
 
-
-Esto se debía a que la URL de la hoja de estilos, a pesar de que en local funcionaba, correctamente, como al desplegarse en Github Pages se hace en un subdirectorio, la URL relativa no era correcta.
-Para ello, Parcel tiene una opción llamada \lstinline|--public-url| que permite especificar la URL base de los recursos estáticos.
-He configurado esta opción para que la URL base sea \lstinline|./|, lo que hace que los recursos se carguen correctamente en Github Pages como se puede ver en la Figura~\ref{fig:web-deployed}.
+Esto se debía a que la URL de la hoja de estilos, a pesar de que en local funcionaba, correctamente, como al desplegarse en Github Pages se hace en un subdirectorio, la URL relativa no era correcta. Para ello, Parcel tiene una opción llamada \mintinline{bash}{--public-url} que permite especificar la URL base de los recursos estáticos. He configurado esta opción para que la URL base sea \mintinline{bash}{./}, lo que hace que los recursos se carguen correctamente en Github Pages como se puede ver en la Figura~\ref{fig:web-deployed}.
 
 \begin{figure}[h!]
     \centering
@@ -254,35 +233,26 @@ He configurado esta opción para que la URL base sea \lstinline|./|, lo que hace
 
 \subsection{Uso de GitHub Actions para la Construcción de la Documentación}\label{subsec:uso-de-github-actions-para-la-construccion-de-la-documentacion}
 
-He decidido crear la documentación de esta práctica usando \LaTeX, e intentar seguir de forma más exacta posible la documentación proporcionada en materia de buenas prácticas en la redacción de docuemntos técnicos.
-Este documento \LaTeX se puede construir desde local usando \textit{Tectonic}, un compilador de LaTeX basado en el lenguaje de programación Rust.
-Sin embargo, para facilitar la construcción de la documentación, he decidido usar Github Actions.
-Para llevar a cabo esta tarea, he usado la documentación proporcionada en el propio \lstinline|README.md| del repositorio de \textit{Tectonic} (\href{https://github.com/marketplace/actions/setup-tectonic}{enlace}). Después de configurar el \textit{workflow}, he podido construir la documentación automáticamente al hacer un \textit{push} al repositorio.
+He decidido crear la documentación de esta práctica usando \LaTeX, e intentar seguir de forma más exacta posible la documentación proporcionada en materia de buenas prácticas en la redacción de documentos técnicos. Este documento \LaTeX se puede construir desde local usando \textit{Tectonic}, un compilador de LaTeX basado en el lenguaje de programación Rust. Sin embargo, para facilitar la construcción de la documentación, he decidido usar Github Actions. Para llevar a cabo esta tarea, he usado la documentación proporcionada en el propio \mintinline{bash}{README.md} del repositorio de \textit{Tectonic} (\href{https://github.com/marketplace/actions/setup-tectonic}{enlace}). Después de configurar el \textit{workflow}, he podido construir la documentación automáticamente al hacer un \textit{push} al repositorio.
 
 \section{Desarrollo de la Web}\label{sec:desarrollo-de-la-web}
 
-El desarrollo de la web se se ha hecho siguiendo la estructura recomendada en el enunciado, y consta de una página principal (\textit{Landing Page}), una página de listado de recetas, dos páginas de detalle de recetas, y una página con los enlaces a las fuentes de las cuales se ha sacado el contenido.
-
-Se ha tenido en cuenta el uso de HTML semántico y de mantener la accesibilidad de la web. Para ello se ha usado la herramienta \textit{HTML Validator} (\href{https://validator.w3.org/}{enlace}) que nos han recomendado en otras asignaturas.
-
-Además, se ha comprobado que la página se lee bien por lectores de pantalla, y que los elementos interactivos son accesibles mediante teclado.
+El desarrollo de la web siguió una estructura recomendada, incluyendo una página principal (\textit{Landing Page}), un listado de recetas, dos páginas de detalle y una página de fuentes. Se priorizó el uso de HTML semántico y la accesibilidad, verificando la compatibilidad con lectores de pantalla y la navegación mediante teclado.
 
 \subsection{Uso de Procesadores}\label{subsec:uso-de-procesadores}
 
-En esta práctica se ha hecho uso intensivo de la librería \lstinline|HTML Include|, que permite incluir fragmentos de HTML en otros ficheros HTML. Se ha seguido una estrategia de desarrollo basada en componentes, donde cada componente se ha desarrollado en un fichero HTML separado, y luego se han incluido en el \lstinline|index.html| principal.
+En esta práctica se ha hecho uso intensivo de la librería \mintinline{bash}{HTML Include}, que permite incluir fragmentos de HTML en otros ficheros HTML. Se ha seguido una estrategia de desarrollo basada en componentes, donde cada componente se ha desarrollado en un fichero HTML separado, y luego se han incluido en el \mintinline{bash}{index.html} principal.
 
-Además, se ha inclíudo la librería \lstinline|postcss-nesting|, que permite usar la sintaxis de anidación de CSS en PostCSS. Esto es muy interesante, porque es una especificación que ya está soportada en navegadores modernos, pero que no está soportada en navegadores antiguos. Esto permite escribir CSS más limpio y legible, y Parcel se encarga de transformar el código para que sea compatible con navegadores antiguos.
+Además, se ha incluido la librería \mintinline{bash}{postcss-nesting}, que permite usar la sintaxis de anidación de CSS en PostCSS. Esto es muy interesante, porque es una especificación que ya está soportada en navegadores modernos, pero que no está soportada en navegadores antiguos. Esto permite escribir CSS más limpio y legible, y Parcel se encarga de transformar el código para que sea compatible con navegadores antiguos.
 
 \subsection{Dependencias Externas}\label{subsec:dependencias-externas}
 
-Además de las librerías usadas para el procesamiento de HTML y CSS, se han usado otras librerías externas para mejorar la experiencia del usuario. En concreto, se ha usado la librería \textit{Scroll Reveal} (\href{https://scrollrevealjs.org/}{enlace}), que permite hacer animaciones de entrada y salida de elementos al hacer scroll en la página. Esto se ha usado para hacer que los elementos de la página aparezcan de forma más atractiva al hacer scroll.
+Además de las herramientas mencionadas, se utilizó la librería \textit{Scroll Reveal} para implementar animaciones atractivas al hacer scroll. Esto mejoró significativamente la experiencia del usuario, haciendo la web más dinámica y visualmente atractiva.
 
 \section{Conclusiones}\label{sec:conclusiones}
 
-En esta práctica he aprendido a configurar un entorno de desarrollo moderno para trabajar con HTML y CSS. He aprendido a usar Parcel como herramienta de construcción, lo que me ha permitido gestionar de manera eficiente los recursos del proyecto, como hojas de estilo, scripts y otros archivos estáticos. Además, he configurado scripts personalizados en el \lstinline|package.json| para simplificar tareas comunes como iniciar el servidor de desarrollo o compilar el proyecto para producción. Esto ha facilitado enormemente el flujo de trabajo y ha reducido el tiempo necesario para realizar tareas repetitivas.
+En esta práctica, se adquirieron habilidades clave para configurar un entorno de desarrollo moderno y eficiente. Parcel demostró ser una herramienta poderosa para gestionar recursos y automatizar tareas comunes. La integración con Github Actions y Pages permitió automatizar el despliegue y la construcción de la documentación, reduciendo errores y mejorando la productividad.
 
-También he aprendido a usar Github Actions para automatizar tanto el despliegue de la aplicación como la construcción de la documentación técnica. Esta automatización no solo garantiza que los procesos sean consistentes y reproducibles, sino que también elimina la posibilidad de errores humanos al realizar estas tareas manualmente. La integración con Github Pages ha sido especialmente útil para publicar la web de forma rápida y sencilla, mientras que el uso de Tectonic para compilar el documento \LaTeX\ ha permitido mantener una documentación técnica profesional y bien estructurada.
-
-Por último, he explorado el uso de librerías externas y herramientas como \textit{Scroll Reveal} y \lstinline|postcss-nesting| para mejorar tanto la experiencia del usuario como la calidad del código. Estas herramientas han permitido implementar animaciones atractivas y escribir CSS más limpio y moderno, asegurando al mismo tiempo la compatibilidad con navegadores antiguos. En conjunto, esta práctica ha sido una experiencia enriquecedora que me ha permitido consolidar conocimientos y adquirir nuevas habilidades en el desarrollo web y la automatización de procesos.
+Además, el uso de librerías como \textit{Scroll Reveal} y \mintinline{bash}{postcss-nesting} permitió implementar características avanzadas y mantener un código limpio y compatible. En conjunto, esta práctica fue una experiencia enriquecedora que consolidó conocimientos y habilidades esenciales para el desarrollo web moderno.
 
 \end{document}
