@@ -239,6 +239,17 @@ He decidido crear la documentación de esta práctica usando \LaTeX, e intentar 
 
 El desarrollo de la web siguió una estructura recomendada, incluyendo una página principal (\textit{Landing Page}), un listado de recetas, dos páginas de detalle y una página de fuentes. Se priorizó el uso de HTML semántico y la accesibilidad, verificando la compatibilidad con lectores de pantalla y la navegación mediante teclado.
 
+Para garantizar la accesibilidad, se implementaron las siguientes prácticas:
+
+\begin{itemize}
+    \item Uso de etiquetas HTML semánticas como \texttt{<header>}, \texttt{<main>}, \texttt{<section>} y \texttt{<footer>} para estructurar el contenido de manera lógica y comprensible.
+    \item Inclusión de atributos \texttt{alt} descriptivos en las imágenes necesarias para proporcionar contexto a los usuarios de lectores de pantalla.
+    \item Implementación de etiquetas \texttt{aria-label} para mejorar la descripción de elementos interactivos como los enlaces de la paginación.
+    \item Comprobar el correcto funcionamiento de la web con un lector de pantalla (ChromeBox Screen Reader), asegurando que el contenido se lee de manera coherente y comprensible.
+\end{itemize}
+
+Estas medidas aseguran que la web sea inclusiva y accesible para una amplia variedad de usuarios, incluyendo aquellos con discapacidades visuales, motoras o cognitivas.
+
 \subsection{Uso de Procesadores}\label{subsec:uso-de-procesadores}
 
 En esta práctica se ha hecho uso intensivo de la librería \mintinline{bash}{HTML Include}, que permite incluir fragmentos de HTML en otros ficheros HTML. Se ha seguido una estrategia de desarrollo basada en componentes, donde cada componente se ha desarrollado en un fichero HTML separado, y luego se han incluido en el \mintinline{bash}{index.html} principal.
