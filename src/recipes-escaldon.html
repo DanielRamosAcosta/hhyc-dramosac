@@ -43,17 +43,23 @@
                         delicia para el paladar.</p>
                 </section>
 
-                <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/k8YB1JSesJc?si=FTAXxaqkxO8AAKug"
-                    title="YouTube video player" frameborder="0"
+                <iframe class="video" width="560" height="315"
+                    src="https://www.youtube.com/embed/k8YB1JSesJc?si=FTAXxaqkxO8AAKug" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
                 <section class="ingredients">
                     <h2>Ingredientes</h2>
+                    <div>
+                        <label for="guests">Cantidad de comensales:</label>
+                        <input type="number" name="Cantidad de comensales" id="guests" min="1" max="10" value="4" data-original-guests="4"
+                        placeholder="Número de comensales" />
+                    </div>
                     <ul>
-                        <li>250 g de gofio (de trigo o mezcla)</li>
-                        <li>500 ml de caldo de carne o pescado caliente</li>
-                        <li>1 cebolla cruda (opcional, para acompañar)</li>
+                        <li><span data-original-amount="250">250</span> g de gofio (de trigo o mezcla)</li>
+                        <li><span data-original-amount="500">500</span> ml de caldo de carne o pescado caliente</li>
+                        <li><span data-original-amount="1">1</span> cebolla cruda (opcional, para acompañar)</li>
                         <li>Mojo rojo o verde al gusto</li>
                         <li>Sal al gusto</li>
                     </ul>
@@ -63,33 +69,46 @@
                     <h2>Pasos para preparar el escaldón</h2>
                     <ol>
                         <li>
-                            Lleva el caldo (de carne, pescado o verduras) a fuego medio hasta que esté bien caliente, sin que llegue a hervir. El calor es clave para que el gofio se mezcle bien. Aprovecha mientras tanto para preparar la cebolla cruda o el mojo si vas a servirlo con ellos.
+                            Lleva el caldo (de carne, pescado o verduras) a fuego medio hasta que esté bien caliente,
+                            sin que llegue a hervir. El calor es clave para que el gofio se mezcle bien. Aprovecha
+                            mientras tanto para preparar la cebolla cruda o el mojo si vas a servirlo con ellos.
                             <img src="./assets/recipes/escaldon/caldo.jpg?as=webp&width=700" alt="" />
 
                         </li>
 
                         <li>
-                            En un bol grande, añade el gofio poco a poco mientras viertes el caldo caliente en pequeñas cantidades. Remueve de forma constante con una cuchara de madera para evitar grumos. Ajusta la cantidad de caldo según la textura que prefieras, más suelta o más espesa.
+                            En un bol grande, añade el gofio poco a poco mientras viertes el caldo caliente en pequeñas
+                            cantidades. Remueve de forma constante con una cuchara de madera para evitar grumos. Ajusta
+                            la cantidad de caldo según la textura que prefieras, más suelta o más espesa.
                             <img src="./assets/recipes/escaldon/mezclando.jpg?as=webp&width=700" alt="" />
                         </li>
 
                         <li>
-                            Cuando tengas una mezcla densa y uniforme, pruébala y añade sal si lo ves necesario. También puedes incorporar trozos del caldo (como carne o pescado desmenuzado) o un chorrito de aceite para darle más sabor.
+                            Cuando tengas una mezcla densa y uniforme, pruébala y añade sal si lo ves necesario. También
+                            puedes incorporar trozos del caldo (como carne o pescado desmenuzado) o un chorrito de
+                            aceite para darle más sabor.
                         </li>
 
                         <li>
-                            Sirve el escaldón recién hecho, acompañado de cebolla cruda y mojo. También combina bien con aceitunas, queso tierno o plátano frito. Tradicional y sabroso, es un plato que se disfruta mejor en buena compañía.
+                            Sirve el escaldón recién hecho, acompañado de cebolla cruda y mojo. También combina bien con
+                            aceitunas, queso tierno o plátano frito. Tradicional y sabroso, es un plato que se disfruta
+                            mejor en buena compañía.
                             <img src="./assets/recipes/escaldon/final.jpg?as=webp&width=700" alt="" />
                         </li>
                     </ol>
                 </section>
                 <section class="conclusions">
-                    <p>El escaldón canario es una receta sencilla pero profundamente arraigada en la cultura gastronómica de las islas. Con ingredientes humildes como el gofio y el caldo, ofrece un plato reconfortante, versátil y lleno de sabor, ideal para compartir en familia o disfrutar en cualquier momento. Prepararlo es una forma de conectar con nuestras raíces y mantener viva una tradición que ha pasado de generación en generación. ¡Esperamos que te sirva la receta!</p>
+                    <p>El escaldón canario es una receta sencilla pero profundamente arraigada en la cultura
+                        gastronómica de las islas. Con ingredientes humildes como el gofio y el caldo, ofrece un plato
+                        reconfortante, versátil y lleno de sabor, ideal para compartir en familia o disfrutar en
+                        cualquier momento. Prepararlo es una forma de conectar con nuestras raíces y mantener viva una
+                        tradición que ha pasado de generación en generación. ¡Esperamos que te sirva la receta!</p>
                 </section>
             </div>
         </article>
     </main>
     <include src="src/components/footer.html"></include>
+    <script src="./recipes-guests.js"></script>
 </body>
 
 </html>
