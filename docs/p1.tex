@@ -33,7 +33,7 @@
 \newpage
 
 \section*{Introducción}
-En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario para trabajar con HTML y CSS. Esto incluye la instalación de editores de texto, navegadores web y otras herramientas útiles.
+En esta práctica, aprenderemos a configurar el entorno de desarrollo necesario para trabajar con HTML y CSS. Esto incluye la instalación de editores de texto, navegadores web y otras herramientas útiles. Además, se ha desarrollado una página web sencilla para poner en práctica lo aprendido.
 
 \newpage
 
@@ -257,6 +257,32 @@ He configurado esta opción para que la URL base sea \lstinline|./|, lo que hace
 He decidido crear la documentación de esta práctica usando \LaTeX, e intentar seguir de forma más exacta posible la documentación proporcionada en materia de buenas prácticas en la redacción de docuemntos técnicos.
 Este documento \LaTeX se puede construir desde local usando \textit{Tectonic}, un compilador de LaTeX basado en el lenguaje de programación Rust.
 Sin embargo, para facilitar la construcción de la documentación, he decidido usar Github Actions.
-Para llevar a cabo esta tarea, he usado la documentación proporcionada en el propio \lstinline|README.md| del repositorio de \textit{Tectonic} (\href{https://github.com/marketplace/actions/setup-tectonic}{enlace}).
+Para llevar a cabo esta tarea, he usado la documentación proporcionada en el propio \lstinline|README.md| del repositorio de \textit{Tectonic} (\href{https://github.com/marketplace/actions/setup-tectonic}{enlace}). Después de configurar el \textit{workflow}, he podido construir la documentación automáticamente al hacer un \textit{push} al repositorio.
+
+\section{Desarrollo de la Web}\label{sec:desarrollo-de-la-web}
+
+El desarrollo de la web se se ha hecho siguiendo la estructura recomendada en el enunciado, y consta de una página principal (\textit{Landing Page}), una página de listado de recetas, dos páginas de detalle de recetas, y una página con los enlaces a las fuentes de las cuales se ha sacado el contenido.
+
+Se ha tenido en cuenta el uso de HTML semántico y de mantener la accesibilidad de la web. Para ello se ha usado la herramienta \textit{HTML Validator} (\href{https://validator.w3.org/}{enlace}) que nos han recomendado en otras asignaturas.
+
+Además, se ha comprobado que la página se lee bien por lectores de pantalla, y que los elementos interactivos son accesibles mediante teclado.
+
+\subsection{Uso de Procesadores}\label{subsec:uso-de-procesadores}
+
+En esta práctica se ha hecho uso intensivo de la librería \lstinline|HTML Include|, que permite incluir fragmentos de HTML en otros ficheros HTML. Se ha seguido una estrategia de desarrollo basada en componentes, donde cada componente se ha desarrollado en un fichero HTML separado, y luego se han incluido en el \lstinline|index.html| principal.
+
+Además, se ha inclíudo la librería \lstinline|postcss-nesting|, que permite usar la sintaxis de anidación de CSS en PostCSS. Esto es muy interesante, porque es una especificación que ya está soportada en navegadores modernos, pero que no está soportada en navegadores antiguos. Esto permite escribir CSS más limpio y legible, y Parcel se encarga de transformar el código para que sea compatible con navegadores antiguos.
+
+\subsection{Dependencias Externas}\label{subsec:dependencias-externas}
+
+Además de las librerías usadas para el procesamiento de HTML y CSS, se han usado otras librerías externas para mejorar la experiencia del usuario. En concreto, se ha usado la librería \textit{Scroll Reveal} (\href{https://scrollrevealjs.org/}{enlace}), que permite hacer animaciones de entrada y salida de elementos al hacer scroll en la página. Esto se ha usado para hacer que los elementos de la página aparezcan de forma más atractiva al hacer scroll.
+
+\section{Conclusiones}\label{sec:conclusiones}
+
+En esta práctica he aprendido a configurar un entorno de desarrollo moderno para trabajar con HTML y CSS. He aprendido a usar Parcel como herramienta de construcción, lo que me ha permitido gestionar de manera eficiente los recursos del proyecto, como hojas de estilo, scripts y otros archivos estáticos. Además, he configurado scripts personalizados en el \lstinline|package.json| para simplificar tareas comunes como iniciar el servidor de desarrollo o compilar el proyecto para producción. Esto ha facilitado enormemente el flujo de trabajo y ha reducido el tiempo necesario para realizar tareas repetitivas.
+
+También he aprendido a usar Github Actions para automatizar tanto el despliegue de la aplicación como la construcción de la documentación técnica. Esta automatización no solo garantiza que los procesos sean consistentes y reproducibles, sino que también elimina la posibilidad de errores humanos al realizar estas tareas manualmente. La integración con Github Pages ha sido especialmente útil para publicar la web de forma rápida y sencilla, mientras que el uso de Tectonic para compilar el documento \LaTeX\ ha permitido mantener una documentación técnica profesional y bien estructurada.
+
+Por último, he explorado el uso de librerías externas y herramientas como \textit{Scroll Reveal} y \lstinline|postcss-nesting| para mejorar tanto la experiencia del usuario como la calidad del código. Estas herramientas han permitido implementar animaciones atractivas y escribir CSS más limpio y moderno, asegurando al mismo tiempo la compatibilidad con navegadores antiguos. En conjunto, esta práctica ha sido una experiencia enriquecedora que me ha permitido consolidar conocimientos y adquirir nuevas habilidades en el desarrollo web y la automatización de procesos.
 
 \end{document}
