@@ -69,10 +69,6 @@ hhyc-dramosac/
 
 El proyecto está configurado para desplegarse automáticamente en GitHub Pages. Asegúrate de que la rama principal (`main`) esté actualizada y realiza un `push` para activar el flujo de trabajo de GitHub Actions.
 
-## Contribuciones
-
-Si deseas contribuir al proyecto, por favor abre un issue o envía un pull request. Todas las contribuciones son bienvenidas.
-
 ## Licencia
 
 Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
