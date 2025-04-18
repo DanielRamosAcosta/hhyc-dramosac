@@ -10,7 +10,9 @@
     "clean": "rimraf dist .parcel-cache",
     "start": "npm-run-all clean parcel:dev",
     "build": "npm-run-all clean parcel:build",
-    "build:docs": "tectonic -Z shell-escape docs/p1.tex"
+    "build:docs": "npm-run-all build:docs:p1 build:docs:p2",
+    "build:docs:p1": "tectonic -Z shell-escape docs/p1.tex",
+    "build:docs:p2": "tectonic -Z shell-escape docs/p2.tex"
   },
   "author": "Daniel Ramos Acosta",
   "license": "MIT",
