@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./components/typography.css" />
     <link rel="stylesheet" href="./components/recipe-hero.css" />
     <link rel="stylesheet" href="./components/recipe-details.css" />
-    <link rel="stylesheet" href="./recipes.css" />
 </head>
 
 <body>
@@ -28,7 +27,16 @@
                 <div class="container">
                     <h1 class="title">Timbal de Batata con Almogrote</h1>
                 </div>
-                <img src="./assets/recipes/timbal-de-batata.jpg?as=webp&width=700" alt="">
+                <img
+                    src="./assets/recipes/batata/featured/squared.jpg?as=webp&width=700"
+                    srcset="
+                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=768 768w,
+                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=1024 1024w,
+                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=1600 1600w,
+                        ./assets/recipes/batata/featured/horizontal.jpg?as=webp&width=2400 2400w
+                    "
+                    sizes="100vw"
+                alt="">
             </div>
             <div class="container">
                 <section class="intro">
@@ -93,13 +101,35 @@
                             Tritura la batata con un tenedor o prensapuré hasta obtener una textura homogénea. Añade un
                             chorrito de aceite de oliva virgen extra, una pizca de sal y, si lo deseas, un toque de
                             pimienta negra o nuez moscada para realzar el sabor.
-                            <img src="./assets/recipes/batata/batata.jpg?as=webp&width=700" alt="" />
+                            <img
+                                src="./assets/recipes/batata/batata.png?as=webp&width=700"
+                                srcset="
+                                    ./assets/recipes/batata/batata.png?as=webp&width=500 500w,
+                                    ./assets/recipes/batata/batata.png?as=webp&width=600 600w,
+                                    ./assets/recipes/batata/batata.png?as=webp&width=700 700w,
+                                    ./assets/recipes/batata/batata.png?as=webp&width=1200 1200w,
+                                    ./assets/recipes/batata/batata.png?as=webp&width=1800 1800w
+                                "
+                                sizes="(min-width: 700px) 700px, 100vw"
+                                alt=""
+                            />
                         </li>
                         <li>
                             Ralla queso curado canario (preferiblemente de cabra), mezcla con ajo triturado, pimienta,
                             un poco de pimentón y aceite de oliva hasta obtener una pasta espesa y untuosa. Puedes
                             ajustarlo según el picor que te guste.
-                            <img src="./assets/recipes/batata/queso.jpg?as=webp&width=700" alt="" />
+                            <img
+                                src="./assets/recipes/batata/queso.png?as=webp&width=700"
+                                srcset="
+                                    ./assets/recipes/batata/queso.png?as=webp&width=500 500w,
+                                    ./assets/recipes/batata/queso.png?as=webp&width=600 600w,
+                                    ./assets/recipes/batata/queso.png?as=webp&width=700 700w,
+                                    ./assets/recipes/batata/queso.png?as=webp&width=1200 1200w,
+                                    ./assets/recipes/batata/queso.png?as=webp&width=1800 1800w
+                                "
+                                sizes="(min-width: 700px) 700px, 100vw"
+                                alt=""
+                            />
                         </li>
                         <li>
                             Utiliza un aro de cocina o un molde pequeño. Coloca una capa de puré de batata en el fondo,
@@ -110,7 +140,18 @@
                             Retira el aro con cuidado. Decora con un chorrito de aceite de oliva, unas hierbas frescas
                             (como tomillo o perejil), y si te gusta, un toque de miel de palma para equilibrar el
                             picante. Sirve templado o a temperatura ambiente como entrante o acompañamiento.
-                            <img src="./assets/recipes/batata/final.jpg?as=webp&width=700" alt="" />
+                            <img 
+                                src="./assets/recipes/batata/final.png?as=webp&width=700"
+                                srcset="
+                                    ./assets/recipes/batata/final.png?as=webp&width=500 500w,
+                                    ./assets/recipes/batata/final.png?as=webp&width=600 600w,
+                                    ./assets/recipes/batata/final.png?as=webp&width=700 700w,
+                                    ./assets/recipes/batata/final.png?as=webp&width=1200 1200w,
+                                    ./assets/recipes/batata/final.png?as=webp&width=1800 1800w
+                                "
+                                sizes="(min-width: 700px) 700px, 100vw"
+                                alt=""
+                            />
                         </li>
                     </ol>
                 </section>

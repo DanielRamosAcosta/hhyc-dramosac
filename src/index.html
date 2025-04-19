@@ -4,6 +4,12 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <title>Gofio y Mojo - Inicio</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png?width=32">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon.png?width=16">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon.png?width=180">
+  <link rel="shortcut icon" href="./assets/favicon.png?width=64" type="image/png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sankofa+Display&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -28,21 +34,51 @@
     </section>
     <section class="cards">
       <article class="reveal card">
-        <img src="./assets/fogon.jpg?as=webp&width=700" alt="Plato de comida canaria típica con carne a la brasa, papas fritas con perejil y una rodaja de limón, servido en un plato de barro sobre un mantel de colores tradicionales.">
+        <img
+          src="./assets/fogon.jpg?as=webp&width=600"
+          srcset="
+            ./assets/fogon.jpg?as=webp&width=768 768w,
+            ./assets/fogon.jpg?as=webp&width=1024 1024w,
+            ./assets/fogon.jpg?as=webp&width=1600 1600w,
+            ./assets/fogon.jpg?as=webp&width=2400 2400w
+          "
+          sizes="(min-width: 1025px) 390px, (min-width: 769px) 600px, 100vw"
+          alt="Plato de comida canaria típica con carne a la brasa, papas fritas con perejil y una rodaja de limón, servido en un plato de barro sobre un mantel de colores tradicionales."
+        >
         <div class="content">
           <h3 class="title">Encuentra las Mejores Recetas Aquí</h3>
           <p>Descubre el auténtico sabor de Canarias con recetas tradicionales que han pasado de generación en generación. Desde platos icónicos hasta secretos familiares, aquí encontrarás todo lo que necesitas para llevar nuestra gastronomía a tu mesa.</p>
         </div>
       </article>
       <article class="reveal card reversed">
-        <img src="./assets/sea.jpg?as=webp&width=700" alt="Playa de arena dorada en Fuerteventura con aguas turquesas y montañas áridas al fondo, bajo un cielo despejado.">
+        <img
+          src="./assets/sea.jpg?as=webp&width=600"
+          srcset="
+            ./assets/sea.jpg?as=webp&width=768 768w,
+            ./assets/sea.jpg?as=webp&width=1024 1024w,
+            ./assets/sea.jpg?as=webp&width=1600 1600w,
+            ./assets/sea.jpg?as=webp&width=2400 2400w
+          "
+          sizes="(min-width: 1025px) 390px, (min-width: 769px) 600px, 100vw"
+          alt="Playa de arena dorada en Fuerteventura con aguas turquesas y montañas áridas al fondo, bajo un cielo despejado."
+        >
         <div class="content">
           <h3 class="title">La Importancia de Mantener la Cultura Local</h3>
           <p>Nuestra identidad se construye con nuestras tradiciones, costumbres y sabores. Mantener viva la cocina canaria es más que cocinar: es preservar nuestra historia, compartir nuestras raíces y evitar que se pierdan las joyas culinarias que nos hacen únicos.</p>
         </div>
       </article>
       <article class="reveal card">
-        <img src="./assets/mountains.jpg?as=webp&width=700" alt="Vista del Teide al atardecer, con su cima iluminada y rodeado de nubes bajas sobre el valle de La Orotava en Tenerife.">
+        <img
+          src="./assets/mountains.jpg?as=webp&width=600"
+          srcset="
+            ./assets/mountains.jpg?as=webp&width=768 768w,
+            ./assets/mountains.jpg?as=webp&width=1024 1024w,
+            ./assets/mountains.jpg?as=webp&width=1600 1600w,
+            ./assets/mountains.jpg?as=webp&width=2400 2400w
+          "
+          sizes="(min-width: 1025px) 390px, (min-width: 769px) 600px, 100vw"
+          alt="Vista del Teide al atardecer, con su cima iluminada y rodeado de nubes bajas sobre el valle de La Orotava en Tenerife."
+        >
         <div class="content">
           <h3 class="title">La Esencia de Nuestra Cocina</h3>
           <p>La gastronomía canaria es un reflejo de nuestra tierra: sencilla, rica y llena de matices. Con ingredientes autóctonos y técnicas ancestrales, cada plato es un pedazo de nuestra historia y un homenaje a quienes la han mantenido viva a lo largo del tiempo.</p>
@@ -51,12 +87,41 @@
     </section>
     <section class="trip reveal">
       <h2>Empieza tu Viaje por la Tradición y el Sabor de Canarias</h2>
-      <img class="tenerife" src="./assets/tenerife.png" alt="Ese">
+      <img
+        class="tenerife"
+        src="./assets/waves.png?as=webp&width=1200"
+        srcset="
+          ./assets/waves.png?as=webp&width=768 768w,
+          ./assets/waves.png?as=webp&width=1024 1024w,
+          ./assets/waves.png?as=webp&width=1600 1600w,
+          ./assets/waves.png?as=webp&width=2400 2400w
+        "
+        sizes="(min-width: 1140px) 600px, 100vw"
+        alt=""
+      >
       <p class="intro">Sumérgete en los sabores auténticos de nuestras islas, aprende sobre sus ingredientes autóctonos y descubre cómo cada receta cuenta una historia de identidad, tradición y cultura. ¡Empieza tu viaje culinario con nosotros!</p>
       <include src="src/components/cta.html" locals='{
         "href": "./recipes.html",
         "text": "Explora Nuestras Recetas"
       }'></include>
+    </section>
+    <section class="trip reveal">
+      <h2>Conoce a nuestro equipo</h2>
+      <img
+        class="team"
+        src="./assets/team.png?as=webp&width=1200"
+        srcset="
+          ./assets/team.png?as=webp&width=300 1x,
+          ./assets/team.png?as=webp&width=450 1.5x,
+          ./assets/team.png?as=webp&width=600 2x,
+          ./assets/team.png?as=webp&width=750 2.5x,
+          ./assets/team.png?as=webp&width=900 3x
+        "
+        alt=""
+      >
+      <p class="intro">
+        En Gofio y Mojo nos enorgullece presentar a nuestro equipo de chefs, apasionados guardianes de la cocina canaria. Cada receta que preparamos está llena de historia, identidad y ese sabor auténtico que solo encuentras en casa. ¿Estás por La Laguna? ¡Pásate a conocernos! Estamos en el número 23, justo frente al Tintín. Te esperamos con los fogones encendidos y el mojo recién hecho.
+      </p>
     </section>
   </div>
 </main>

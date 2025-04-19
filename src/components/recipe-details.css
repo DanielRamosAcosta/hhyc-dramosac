@@ -70,6 +70,10 @@
             margin: 2rem 0;
             max-width: 100%;
             display: block;
+
+            @media (min-width: 700px) {
+                width: 700px;
+            }
         }
     }
 }

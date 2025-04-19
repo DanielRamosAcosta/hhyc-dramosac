@@ -19,10 +19,9 @@
   }
 
   h1 {
-    font-family: "Sankofa Display", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 6rem;
+    img {
+      max-width: 100%;
+    }
   }
 
   .subtitle {
