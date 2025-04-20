@@ -66,11 +66,15 @@ jobs:
             ${{ runner.os }}-tectonic-
 
       - name: Build documentation
-        run: tectonic -Z shell-escape docs/p1.tex
+        run: |
+          tectonic -Z shell-escape docs/p1.tex
+          tectonic -Z shell-escape docs/p2.tex
 
-      - name: Upload PDF artifact
+      - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: documentation-pdf
-          path: docs/p1.pdf
+          name: documentation-pdfs
+          path: |
+            docs/p1.pdf
+            docs/p2.pdf
           retention-days: 1
