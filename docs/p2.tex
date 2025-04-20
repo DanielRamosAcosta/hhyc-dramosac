@@ -7,6 +7,8 @@
 \usepackage{listings}
 \usepackage{minted}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{multirow}
 \hypersetup{
     colorlinks,
     linkcolor={red!50!black},
@@ -45,14 +47,229 @@ En este documento se detallan las técnicas de desarrollo web utilizadas en la r
 
 \section{Formatos de imagen utilizados}\label{sec:formatos-de-imagen-utilizados}
 
+Las imágenes empleadas en el desarrollo del sitio web provienen de diversas fuentes, por lo que sus formatos originales son heterogéneos. Sin embargo, se ha optado por unificar el formato de destino en la mayoría de los casos, utilizando WebP. Este formato ha sido seleccionado por su amplio soporte en los principales navegadores y por ofrecer un buen equilibrio entre calidad visual y compresión, permitiendo reducir el tamaño de los archivos sin comprometer en exceso la calidad.
+
+Se valoró la posibilidad de utilizar el formato AVIF, dado que proporciona una compresión aún más eficiente. No obstante, fue descartado debido a su menor compatibilidad con ciertos navegadores y al mayor coste computacional asociado a la descompresión de las imágenes. Aunque AVIF puede reducir ligeramente el tamaño final de los archivos, se consideró que las desventajas en términos de rendimiento y soporte en navegadores no compensaban esta mejora marginal.
+
+Además, se ha utilizado el formato SVG en casos puntuales. Concretamente, se empleó para el logotipo situado en el \textit{hero} de la página principal, lo cual permitió aplicar una animación que simula el efecto de escritura manual al cargar la web por primera vez. Asimismo, los iconos de Instagram y YouTube presentes en el footer también están implementados en formato SVG, aprovechando su escalabilidad y ligereza.
+
 \subsection{Tabla de imágenes optimizadas}\label{subsec:tabla-de-imagenes-optimizadas}
+
+Es importante señalar que, al emplear imágenes \textit{responsive}, Parcel genera versiones optimizadas de cada imagen para los distintos tamaños especificados en el atributo \lstinline{srcset}. Como resultado, la optimización no produce una única imagen de salida, sino múltiples versiones adaptadas a diferentes resoluciones de pantalla.
+
+En la siguiente tabla no se especifica el formato de destino, ya que, tal como se ha detallado en el apartado anterior, todas las imágenes han sido convertidas al formato WebP por sus ventajas en términos de compresión y compatibilidad.
+
+\begin{longtable}{c|c|c|c|c}
+    \hline
+    \textbf{N} & \textbf{R} & \textbf{T} & \textbf{RD} & \textbf{TO} \\
+    \endhead
+    \hline
+    \multirow{5}{*}{batata.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{2788k} & 1800x1200 & 160k \\
+     &  &  & 1200x800 & 84k \\
+     &  &  & 700x467 & 36k \\
+     &  &  & 500x333 & 24k \\
+     &  &  & 600x400 & 28k \\
+    \hline
+    \multirow{5}{*}{caldo.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{2564k} & 1800x1200 & 104k \\
+     &  &  & 1200x800 & 60k \\
+     &  &  & 700x467 & 32k \\
+     &  &  & 600x400 & 24k \\
+     &  &  & 500x333 & 20k \\
+    \hline
+    \multirow{5}{*}{champis-con-almogrote.jpg} & \multirow{5}{*}{4608x3456} & \multirow{5}{*}{2120k} & 1600x1200 & 228k \\
+     &  &  & 1024x768 & 112k \\
+     &  &  & 700x525 & 60k \\
+     &  &  & 600x450 & 48k \\
+     &  &  & 260x195 & 12k \\
+    \hline
+    \multirow{5}{*}{chuleton-de-ternera.jpg} & \multirow{5}{*}{4608x3456} & \multirow{5}{*}{2120k} & 1600x1200 & 216k \\
+     &  &  & 1024x768 & 120k \\
+     &  &  & 700x525 & 68k \\
+     &  &  & 600x450 & 56k \\
+     &  &  & 260x195 & 16k \\
+    \hline
+    \multirow{5}{*}{ensaladilla.jpg} & \multirow{5}{*}{3024x3192} & \multirow{5}{*}{2708k} & 1600x1689 & 276k \\
+     &  &  & 1024x1081 & 148k \\
+     &  &  & 700x739 & 84k \\
+     &  &  & 600x633 & 64k \\
+     &  &  & 260x274 & 20k \\
+    \hline
+    \multirow{5}{*}{escaldon.jpg} & \multirow{5}{*}{4032x3024} & \multirow{5}{*}{3204k} & 1600x1200 & 204k \\
+     &  &  & 1024x768 & 112k \\
+     &  &  & 700x525 & 68k \\
+     &  &  & 260x195 & 24k \\
+     &  &  & 600x450 & 56k \\
+    \hline
+    \multirow{5}{*}{final.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{3032k} & 1800x1200 & 248k \\
+     &  &  & 1200x800 & 140k \\
+     &  &  & 700x467 & 52k \\
+     &  &  & 600x400 & 40k \\
+     &  &  & 500x333 & 32k \\
+    \hline
+    \multirow{5}{*}{final.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{2816k} & 1800x1200 & 168k \\
+     &  &  & 1200x800 & 88k \\
+     &  &  & 700x467 & 32k \\
+     &  &  & 600x400 & 28k \\
+     &  &  & 500x333 & 20k \\
+    \hline
+    \multirow{5}{*}{fogon.jpg} & \multirow{5}{*}{4608x3456} & \multirow{5}{*}{4476k} & 2400x1800 & 580k \\
+     &  &  & 1600x1200 & 288k \\
+     &  &  & 1024x768 & 144k \\
+     &  &  & 600x450 & 64k \\
+     &  &  & 768x576 & 88k \\
+    \hline
+    \multirow{5}{*}{garbanzas-con-queso-asado.jpg} & \multirow{5}{*}{4608x3456} & \multirow{5}{*}{3828k} & 1600x1200 & 340k \\
+     &  &  & 1024x768 & 168k \\
+     &  &  & 700x525 & 88k \\
+     &  &  & 600x450 & 68k \\
+     &  &  & 260x195 & 20k \\
+    \hline
+    hero.jpg & 5919x3946 & 3496k & 1920x1280 & 328k \\
+    \hline
+    horizontal.jpg & 1280x468 & 512k & 2400x878 & 88k \\
+    \hline
+    horizontal.jpg & 1280x468 & 212k & 2400x878 & 36k \\
+    \hline
+    \multirow{5}{*}{mezclando.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{3240k} & 1800x1200 & 328k \\
+     &  &  & 1200x800 & 184k \\
+     &  &  & 700x467 & 68k \\
+     &  &  & 600x400 & 52k \\
+     &  &  & 500x333 & 36k \\
+    \hline
+    \multirow{5}{*}{mountains.jpg} & \multirow{5}{*}{4032x3024} & \multirow{5}{*}{1956k} & 2400x1800 & 192k \\
+     &  &  & 1600x1200 & 108k \\
+     &  &  & 1024x768 & 56k \\
+     &  &  & 768x576 & 36k \\
+     &  &  & 600x450 & 28k \\
+    \hline
+    \multirow{5}{*}{potaje-de-garbanazas.jpg} & \multirow{5}{*}{4000x1824} & \multirow{5}{*}{1232k} & 1600x730 & 196k \\
+     &  &  & 1024x467 & 112k \\
+     &  &  & 700x319 & 72k \\
+     &  &  & 600x274 & 64k \\
+     &  &  & 260x119 & 40k \\
+    \hline
+    \multirow{5}{*}{queso.png} & \multirow{5}{*}{1536x1024} & \multirow{5}{*}{2772k} & 1800x1200 & 152k \\
+     &  &  & 1200x800 & 84k \\
+     &  &  & 700x467 & 32k \\
+     &  &  & 600x400 & 28k \\
+     &  &  & 500x333 & 20k \\
+    \hline
+    \multirow{5}{*}{sea.jpg} & \multirow{5}{*}{4032x3024} & \multirow{5}{*}{2832k} & 2400x3200 & 560k \\
+     &  &  & 1600x2133 & 284k \\
+     &  &  & 1024x1365 & 132k \\
+     &  &  & 768x1024 & 80k \\
+     &  &  & 600x800 & 52k \\
+    \hline
+    \multirow{5}{*}{secreto-iberico.jpg} & \multirow{5}{*}{4608x3456} & \multirow{5}{*}{4476k} & 1600x1200 & 288k \\
+     &  &  & 1024x768 & 144k \\
+     &  &  & 700x525 & 80k \\
+     &  &  & 600x450 & 64k \\
+     &  &  & 260x195 & 20k \\
+    \hline
+    \multirow{4}{*}{squared.jpg} & \multirow{4}{*}{4032x3024} & \multirow{4}{*}{3204k} & 1600x1363 & 212k \\
+     &  &  & 1024x873 & 84k \\
+     &  &  & 768x654 & 52k \\
+     &  &  & 700x596 & 44k \\
+    \hline
+    \multirow{4}{*}{squared.jpg} & \multirow{4}{*}{3409x2905} & \multirow{4}{*}{2776k} & 1600x1200 & 204k \\
+     &  &  & 1024x768 & 112k \\
+     &  &  & 768x576 & 76k \\
+     &  &  & 700x525 & 68k \\
+    \hline
+    \multirow{6}{*}{team.png} & \multirow{6}{*}{1536x1024} & \multirow{6}{*}{2592k} & 1200x800 & 72k \\
+     &  &  & 900x600 & 48k \\
+     &  &  & 750x500 & 40k \\
+     &  &  & 600x400 & 32k \\
+     &  &  & 450x300 & 24k \\
+     &  &  & 300x200 & 12k \\
+    \hline
+    \multirow{5}{*}{teide.jpg} & \multirow{5}{*}{4000x2668} & \multirow{5}{*}{1436k} & 2400x1601 & 588k \\
+     &  &  & 1600x1067 & 284k \\
+     &  &  & 1200x800 & 164k \\
+     &  &  & 1024x683 & 120k \\
+     &  &  & 768x512 & 68k \\
+    \hline
+    \multirow{5}{*}{timbal-de-batata.jpg} & \multirow{5}{*}{3409x2905} & \multirow{5}{*}{2776k} & 1600x1363 & 212k \\
+     &  &  & 1024x873 & 84k \\
+     &  &  & 700x596 & 44k \\
+     &  &  & 600x511 & 36k \\
+     &  &  & 260x222 & 12k \\
+    \hline
+    \caption{
+        Ejemplos de imágenes optimizadas.
+        Leyenda: 
+        \textbf{N}: Nombre, 
+        \textbf{R}: Resolución original, 
+        \textbf{T}: Tamaño original, 
+        \textbf{D}: Resolución destino, 
+        \textbf{O}: Tamaño optimizado.
+    }
+    \label{tab:imagenes-optimizadas}
+\end{longtable}
+
+Tal como se puede observar, incluso manteniendo la misma resolución, el formato WebP permite una reducción significativa del peso de los archivos en comparación con las imágenes originales, lo que contribuye a mejorar el rendimiento del sitio web sin sacrificar calidad visual.
 
 \section{Utilización de las técnicas de imagen responsive}\label{sec:utilizacion-de-las-tecnicas-de-imagen-responsive}
 
+En el desarrollo del sitio web se han aplicado las tres técnicas de imágenes responsive estudiadas en el Módulo 3 de la asignatura, con el objetivo de optimizar la visualización en distintos dispositivos y mejorar la eficiencia en la carga de recursos. A continuación, se detalla cada una de ellas:
+
+\begin{enumerate}
+    \item \textbf{Resolution switching (tamaño)}: Esta es la técnica de responsividad más utilizada en el sitio. La mayoría de las imágenes se adaptan automáticamente al tamaño del contenedor principal de la página, hasta alcanzar el límite de 1140 píxeles impuesto por la estructura general del diseño. Para ello, se han configurado adecuadamente los atributos srcset de las etiquetas <img>, permitiendo al navegador seleccionar la versión de la imagen más adecuada según el ancho de pantalla del usuario.
+
+    Un caso particular se encuentra en la rejilla de recetas del catálogo, donde la cantidad de cards por fila varía en función del ancho de la pantalla. A menor resolución, hay menos tarjetas por fila, por lo que se requiere una imagen de mayor tamaño relativo para asegurar una buena presentación visual.
+
+    \item \textbf{Resolution switching (por densidad de píxeles)}: Esta técnica se ha implementado de forma específica en la fotografía del equipo que aparece en la portada. Dado que esta imagen tiene un tamaño fijo predefinido en la maquetación, la variable más relevante es la densidad de píxeles del dispositivo. Por tanto, se han definido versiones alternativas para dispositivos con pantallas de alta resolución (retina displays, por ejemplo), garantizando así una imagen nítida sin penalizar en exceso el rendimiento en pantallas convencionales.
+
+    \item \textbf{Dirección de arte (art direction)}: Esta técnica se ha aplicado en las páginas individuales de receta, inspirándose en el ejemplo del artículo incluido en el Módulo 3 (donde la imagen de un teléfono Nokia cambia de orientación). En este caso, se han utilizado imágenes distintas según el dispositivo: en entornos de escritorio, se muestra una imagen destacada con orientación horizontal, que se adapta mejor al diseño más ancho; mientras que en móviles se opta por una imagen de composición más cuadrada, optimizada para el formato vertical de estas pantallas.
+
+    Es importante señalar que no se ha empleado el elemento \texttt{<picture>}, ya que las imágenes utilizadas en este contexto son puramente decorativas y no requieren texto alternativo. Por este motivo, ha sido suficiente el uso de la etiqueta \texttt{<img>} con el atributo \texttt{srcset}.
+\end{enumerate}
+
+
 \section{Animación de elementos en CSS}\label{sec:animacion-de-elementos-en-css}
 
-\section{Uso de clip-path}\label{sec:uso-de-clip-path}
+Las animaciones y transiciones en CSS han sido utilizadas en el sitio web con el objetivo de mejorar la experiencia de usuario y dotar a la interfaz de una mayor interactividad sin comprometer la usabilidad ni el rendimiento. A continuación, se detallan las distintas técnicas aplicadas:
+
+\subsection{Transiciones de CSS}\label{subsec:transiciones-de-css}
+
+Se han implementado diversas transiciones a lo largo del sitio, principalmente asociadas a eventos de tipo hover, para aportar dinamismo y suavidad en la interacción. Entre los casos más destacados se encuentran:
+
+\begin{itemize}
+    \item Los enlaces del encabezado (header) cambian su color de negro a marrón mediante una transición sutil al pasar el cursor por encima.
+    \item Las imágenes de las cards en la página principal aumentan ligeramente de tamaño y se les añade una sombra, generando un efecto de realce al hacer hover.
+    \item La figura decorativa con forma de Tenerife, creada con clip-path, modifica su forma de forma leve al interactuar con el puntero.
+    \item Los botones distribuidos por el sitio presentan transiciones de color que refuerzan la percepción de interactividad.
+    \item Las cards del catálogo de recetas escalan levemente al situar el cursor sobre ellas, destacando el elemento seleccionado.
+\end{itemize}
+
+Estas transiciones, aunque discretas, aportan cohesión visual y una sensación más fluida en la navegación del sitio.
+
+\subsection{Animaciones CSS}\label{subsec:animaciones-css}
+
+Además de las transiciones, se han definido algunas animaciones que no podrían haberse implementado únicamente mediante propiedades de transición, ya que implican cambios continuos en el tiempo:
+
+\begin{itemize}
+    \item En el llamado a la acción (call to action) de la página principal se ha implementado una animación tipo breathe, un efecto que simula el movimiento suave y cíclico de expansión y contracción, similar al ritmo de la respiración. Este tipo de animación se utiliza frecuentemente para dirigir la atención del usuario de forma sutil.
+
+    \item El emoji de corazón ubicado en el footer incluye una animación tipo heartbeat, que consiste en un pulso rítmico que imita el latido del corazón.
+\end{itemize}
+
+\subsection{Animaciones en SVG}\label{subsec:animaciones-en-svg}
+
+En la entrega anterior, el logotipo ``Gofio y Mojo'' consistía en un simple texto dentro de un elemento \texttt{<h1>}. En esta práctica, se ha rediseñado utilizando SVG, elaborado previamente en Figma, para permitir una animación más elaborada.
+
+La animación consiste en simular el trazado del logotipo como si se estuviera escribiendo a mano. Para ello, se ha creado una máscara de recorte mediante un \texttt{path} que recorre todo el texto. Posteriormente, se ha aplicado una animación sobre las propiedades \texttt{stroke-dasharray} y \texttt{stroke-dashoffset}, que progresivamente van revelando el trazado, generando el efecto de escritura.
+
+\section{Uso de \texttt{clip-path}}\label{sec:uso-de-clip-path}
+
+En el sitio web se ha utilizado la propiedad CSS \texttt{clip-path} para crear una figura personalizada basada en el contorno geográfico de la isla de Tenerife. La imagen utilizada representa la isla, y mediante clip-path se ha recortado con la misma forma, de modo que la imagen queda integrada dentro de un contorno poligonal que reproduce fielmente su silueta.
+
+Para definir con precisión los puntos del polígono, se empleó la herramienta Clippy (\href{https://bennettfeely.com/clippy/}{enlace}), recomendada en el Módulo 3 de la asignatura. Se subió una imagen del mapa político de Tenerife, que sirvió como base visual para trazar manualmente los vértices del polígono dentro de la interfaz de Clippy. Una vez completado el trazado, la herramienta generó automáticamente la propiedad \texttt{clip-path} correspondiente, la cual fue incorporada al código CSS del proyecto.
+
+Además, se implementó una variante animada al hacer hover sobre la figura. Dado que una limitación importante de \texttt{clip-path} es que la cantidad de puntos del polígono debe mantenerse constante entre el estado normal y el estado hover, se desarrolló un pequeño script que toma las coordenadas originales del polígono y las modifica levemente. Esta transformación controlada genera un efecto visual de ``movimiento'' o distorsión suave al interactuar con el cursor, sin alterar la estructura del polígono.
 
 \section{Semántica y accesibilidad}\label{sec:semantica-y-accesibilidad}
+
+TODO
 
 \end{document}
