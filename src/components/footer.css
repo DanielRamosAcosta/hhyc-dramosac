@@ -45,6 +45,11 @@ footer {
 
   .copy {
     grid-area: copy;
+
+    .heart {
+      display: inline-block;
+      animation: heartbeat 1.5s infinite;
+    }
   }
 
   .legal {
@@ -79,9 +84,16 @@ footer {
         text-decoration: none;
 
         &:hover {
-          color: var(--color-green);
+          color: var(--color-light);
         }
       }
     }
   }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.05); }
 }
