@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{multirow}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\title{P3: Rendimiento web}
+\author{Daniel Ramos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    \large Herramientas HTML y CSS I
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section*{Introducción}
+
+TODO
+
+\begin{itemize}
+    \item \href{https://github.com/DanielRamosAcosta/hhyc-dramosac}{Repositorio en GitHub}
+    \item \href{https://www.danielramos.me/hhyc-dramosac}{Página web desplegada}
+\end{itemize}
+
+\newpage
+
+\section{Análisis de tiempo de carga}\label{sec:analisis-de-tiempo-de-carga}
+
+Las imágenes empleadas en el desarrollo del sitio web provienen de diversas fuentes, por lo que sus formatos originales son heterogéneos. Sin embargo, se ha optado por unificar el formato de destino en la mayoría de los casos, utilizando WebP. Este formato ha sido seleccionado por su amplio soporte en los principales navegadores y por ofrecer un buen equilibrio entre calidad visual y compresión, permitiendo reducir el tamaño de los archivos sin comprometer en exceso la calidad.
+
+Se valoró la posibilidad de utilizar el formato AVIF, dado que proporciona una compresión aún más eficiente. No obstante, fue descartado debido a su menor compatibilidad con ciertos navegadores, al mayor coste computacional asociado a la descompresión de las imágenes y a su menor soporte en algunas redes sociales, especialmente en las imágenes de previsualización \footnote{Tal y como sugiere este artículo sobre la seguridad de uso del formato AVIF y WebP: https://joost.blog/use-avif-webp-share-images/}. Aunque AVIF puede reducir ligeramente el tamaño final de los archivos, se consideró que las desventajas en términos de rendimiento, soporte en navegadores y redes sociales no compensaban esta mejora marginal.
+
+Además, se ha utilizado el formato SVG en casos puntuales. Concretamente, se empleó para el logotipo situado en el \textit{hero} de la página principal, lo cual permitió aplicar una animación que simula el efecto de escritura manual al cargar la web por primera vez. Asimismo, los iconos de Instagram y YouTube presentes en el footer también están implementados en formato SVG, aprovechando su escalabilidad y ligereza.
+
+\subsection{Tabla de tiempos de carga}\label{subsec:tabla-de-tiempos-de-carga}
+
+TODO
+
+\begin{longtable}{c|c|c|c|c|c}
+    \hline
+    \textbf{TI} & \textbf{UR} & \textbf{TC} & \textbf{PT} & \textbf{PR} & \textbf{CR} \\
+    \endhead
+    \hline
+    Inicio & \href{https://www.danielramos.me/hhyc-dramosac/index.html}{index.html} & 28,81s & 4812,8 Kb & 4751,36 Kb & 30 \\
+    Recetas & \href{https://www.danielramos.me/hhyc-dramosac/recipes.html}{recipes.html} & 5,43s & 555 Kb & 541 Kb & 27 \\
+    Escaldón & \href{https://www.danielramos.me/hhyc-dramosac/recipes-escaldon.html}{recipes-escaldon.html} & 20,7s & 4843,52 Kb & 2007,04 Kb & 46 \\
+    Batata & \href{https://www.danielramos.me/hhyc-dramosac/recipes-batata.html}{recipes-batata.html} & 17,54s & 4485,12 Kb & 1648,64 Kb & 47 \\
+    Enlaces & \href{https://www.danielramos.me/hhyc-dramosac/links.html}{links.html} & 631,2ms & 74 Kb & 50 Kb & 14 \\
+    \hline
+    \caption{
+        Ejemplos de imágenes optimizadas.
+        Leyenda: 
+        \textbf{TI}: Título de la página, 
+        \textbf{UR}: URL, 
+        \textbf{TC}: Tiempo de carga (promedio) 
+        \textbf{PT}: Peso total 
+        \textbf{PR}: Peso transferido, 
+        \textbf{CR}: Cantidad de recursos que contine la página.
+    }
+    \label{tab:imagenes-optimizadas}
+\end{longtable}
+
+
+\end{document}

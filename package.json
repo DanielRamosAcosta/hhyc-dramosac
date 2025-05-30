@@ -12,7 +12,8 @@
     "build": "npm-run-all clean parcel:build",
     "build:docs": "npm-run-all build:docs:p1 build:docs:p2",
     "build:docs:p1": "tectonic -Z shell-escape docs/p1.tex",
-    "build:docs:p2": "tectonic -Z shell-escape docs/p2.tex"
+    "build:docs:p2": "tectonic -Z shell-escape docs/p2.tex",
+    "build:docs:p3": "tectonic -Z shell-escape docs/p3.tex"
   },
   "author": "Daniel Ramos Acosta",
   "license": "MIT",
