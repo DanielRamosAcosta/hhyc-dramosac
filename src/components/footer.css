@@ -56,7 +56,7 @@ footer {
     grid-area: legal;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.2rem;
     align-items: center;
 
     @media (min-width: 1024px) {
@@ -68,6 +68,7 @@ footer {
       list-style: none;
       font-size: 0.9rem;
       position: relative;
+      padding: 0.5rem 0.7rem;
 
       @media (min-width: 1024px) {
         &:not(:first-child)::before {
@@ -82,6 +83,8 @@ footer {
         color: inherit;
         transition: color 0.2s ease;
         text-decoration: none;
+        min-width: 44px;
+        min-height: 44px;
 
         &:hover {
           color: var(--color-light);
