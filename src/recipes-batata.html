@@ -33,16 +33,17 @@
                 <div class="container">
                     <h1 class="title">Timbal de Batata con Almogrote</h1>
                 </div>
-                <img
-                    src="./assets/recipes/batata/featured/squared.jpg?as=webp&width=700"
-                    srcset="
-                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=768 768w,
-                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=1024 1024w,
-                        ./assets/recipes/batata/featured/squared.jpg?as=webp&width=1600 1600w,
-                        ./assets/recipes/batata/featured/horizontal.jpg?as=webp&width=2400 2400w
-                    "
-                    sizes="100vw"
-                alt="">
+                <picture>
+                    <source srcset="./assets/recipes/batata/featured/horizontal.jpg?as=webp&width=2400" media="(min-width: 1600px)">
+                    <source srcset="./assets/recipes/batata/featured/squared.jpg?as=webp&width=1600" media="(min-width: 1024px)">
+                    <source srcset="./assets/recipes/batata/featured/squared.jpg?as=webp&width=1024" media="(min-width: 768px)">
+                    <source srcset="./assets/recipes/batata/featured/squared.jpg?as=webp&width=768" media="(min-width: 700px)">
+                    <img
+                        src="./assets/recipes/batata/featured/squared.jpg?as=webp&width=700"
+                        sizes="100vw"
+                        alt="Timbal de Batata con Almogrote"
+                    >
+                </picture>
             </div>
             <div class="container">
                 <section class="intro">
