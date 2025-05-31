@@ -6,9 +6,3 @@ ScrollReveal().reveal('.reveal', {
     origin: 'bottom',
     interval: 200
 });
-
-window.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("hero-video");
-    video.autoplay = true;
-    video.load();
-});
