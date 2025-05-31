@@ -58,8 +58,8 @@ TODO
     \textbf{TI} & \textbf{UR} & \textbf{TC} & \textbf{PT} & \textbf{PR} & \textbf{CR} \\
     \endhead
     \hline
-    Inicio & \href{https://www.danielramos.me/hhyc-dramosac/index.html}{index.html} & 28,81s & 4812,8 Kb & 4751,36 Kb & 30 \\
-    Recetas & \href{https://www.danielramos.me/hhyc-dramosac/recipes.html}{recipes.html} & 5,43s & 555 Kb & 541 Kb & 27 \\
+    Inicio & \href{https://www.danielramos.me/hhyc-dramosac/index.html}{index.html} & 34,81s & 5812,8 Kb & 4951,36 Kb & 30 \\
+    Recetas & \href{https://www.danielramos.me/hhyc-dramosac/recipes.html}{recipes.html} & 7,12s & 796 Kb & 618 Kb & 27 \\
     Escaldón & \href{https://www.danielramos.me/hhyc-dramosac/recipes-escaldon.html}{recipes-escaldon.html} & 20,7s & 4843,52 Kb & 2007,04 Kb & 46 \\
     Batata & \href{https://www.danielramos.me/hhyc-dramosac/recipes-batata.html}{recipes-batata.html} & 17,54s & 4485,12 Kb & 1648,64 Kb & 47 \\
     Enlaces & \href{https://www.danielramos.me/hhyc-dramosac/links.html}{links.html} & 631,2ms & 74 Kb & 50 Kb & 14 \\
@@ -79,6 +79,31 @@ TODO
 \end{longtable}
 
 \subsection{Segundo análisis (tras aplicar \textit{lazy loading} y \texttt{defer})}\label{sec:segundo-analisis}
+
+\begin{longtable}{c|c|c|c|c|c}
+    \hline
+    \textbf{TI} & \textbf{UR} & \textbf{TC} & \textbf{PT} & \textbf{PR} & \textbf{CR} \\
+    \endhead
+    \hline
+    Inicio & \href{https://www.danielramos.me/hhyc-dramosac/index.html}{index.html} & 28,43s & 4812,8 Kb & 4751,36 Kb & 30 \\
+    Recetas & \href{https://www.danielramos.me/hhyc-dramosac/recipes.html}{recipes.html} & 5,43s & 555 Kb & 541 Kb & 27 \\
+    Escaldón & \href{https://www.danielramos.me/hhyc-dramosac/recipes-escaldon.html}{recipes-escaldon.html} & 16,1s & 4362,24 Kb & 1525,76 Kb & 46 \\
+    Batata & \href{https://www.danielramos.me/hhyc-dramosac/recipes-batata.html}{recipes-batata.html} & 14,41s & 4167,68 Kb & 1331,2 Kb & 47 \\
+    Enlaces & \href{https://www.danielramos.me/hhyc-dramosac/links.html}{links.html} & 527ms & 51,9 Kb & 43,72 Kb & 14 \\
+    \hline
+     \\[1.5ex]
+     \caption{
+          Ejemplos de imágenes optimizadas.
+          Leyenda: 
+          \textbf{TI}: Título de la página, 
+          \textbf{UR}: URL, 
+          \textbf{TC}: Tiempo de carga (promedio) 
+          \textbf{PT}: Peso total 
+          \textbf{PR}: Peso transferido, 
+          \textbf{CR}: Cantidad de recursos que contine la página.
+     }
+    \label{tab:imagenes-optimizadas}
+\end{longtable}
 
 \subsection{Tercer análisis (tras aplicar mejoras propuestas)}\label{sec:tercer-analisis}
 
