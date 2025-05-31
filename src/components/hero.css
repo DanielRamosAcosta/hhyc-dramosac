@@ -10,11 +10,11 @@
   .hero-bg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -2;
+    background: linear-gradient(to bottom, #323e43 0%,#494c3a 28%,#926a34 58%,#233331 69%,#334946 84%,#000000 91%);
   }
 
   video {
