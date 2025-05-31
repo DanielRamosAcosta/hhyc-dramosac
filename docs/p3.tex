@@ -45,15 +45,11 @@ TODO
 
 \newpage
 
-\section{Análisis de tiempo de carga}\label{sec:analisis-de-tiempo-de-carga}
+\section{Análisis del tiempo de carga}\label{sec:analisis-de-tiempo-de-carga}
 
-Las imágenes empleadas en el desarrollo del sitio web provienen de diversas fuentes, por lo que sus formatos originales son heterogéneos. Sin embargo, se ha optado por unificar el formato de destino en la mayoría de los casos, utilizando WebP. Este formato ha sido seleccionado por su amplio soporte en los principales navegadores y por ofrecer un buen equilibrio entre calidad visual y compresión, permitiendo reducir el tamaño de los archivos sin comprometer en exceso la calidad.
+TODO
 
-Se valoró la posibilidad de utilizar el formato AVIF, dado que proporciona una compresión aún más eficiente. No obstante, fue descartado debido a su menor compatibilidad con ciertos navegadores, al mayor coste computacional asociado a la descompresión de las imágenes y a su menor soporte en algunas redes sociales, especialmente en las imágenes de previsualización \footnote{Tal y como sugiere este artículo sobre la seguridad de uso del formato AVIF y WebP: https://joost.blog/use-avif-webp-share-images/}. Aunque AVIF puede reducir ligeramente el tamaño final de los archivos, se consideró que las desventajas en términos de rendimiento, soporte en navegadores y redes sociales no compensaban esta mejora marginal.
-
-Además, se ha utilizado el formato SVG en casos puntuales. Concretamente, se empleó para el logotipo situado en el \textit{hero} de la página principal, lo cual permitió aplicar una animación que simula el efecto de escritura manual al cargar la web por primera vez. Asimismo, los iconos de Instagram y YouTube presentes en el footer también están implementados en formato SVG, aprovechando su escalabilidad y ligereza.
-
-\subsection{Tabla de tiempos de carga}\label{subsec:tabla-de-tiempos-de-carga}
+\subsection{Primer análisis (estado inicial)}\label{subsec:primer-analisis}
 
 TODO
 
@@ -81,5 +77,36 @@ TODO
     \label{tab:imagenes-optimizadas}
 \end{longtable}
 
+\subsection{Segundo análisis (tras aplicar \textit{lazy loading} y \texttt{defer})}\label{sec:segundo-analisis}
+
+\subsection{Tercer análisis (tras aplicar mejoras propuestas)}\label{sec:tercer-analisis}
+
+\subsection{Comparativa y análisis de resultados}\label{sec:comparativa-y-analisis-de-resultados}
+
+\section{Primeros cambios}\label{sec:primeros-cambios}
+
+\subsection{Aplicación de \texttt{loading="lazy"} en imágenes}\label{subsec:loading-lazy}
+
+\subsection{Uso de \texttt{defer} en scripts}\label{subsec:defer-en-scripts}
+
+\subsection{Justificación de los elementos modificados}\label{subsec:justificacion}
+
+\section{Informe de mejoras}\label{sec:informe-de-mejoras}
+
+\subsection{Resultados del test inicial (PageSpeed Insights)}\label{subsec:resultados-del-test-inicial}
+
+\subsection{Cambios realizados en base a sugerencias}\label{subsec:cambios-realizados}
+
+\subsection{Resultados tras las mejoras}\label{subsec:resultados-tras-las-mejoras}
+
+\subsection{Análisis comparativo del rendimiento}\label{subsec:analisis-comparativo}
+
+\section{Preguntas finales}\label{sec:preguntas-finales}
+
+\subsection{Efecto de lazy loading en herramientas de desarrollo y en el rendimiento}\label{subsec:efecto-de-lazy-loading}
+
+\subsection{Impacto y posibles problemas del uso de \texttt{defer}}\label{subsec:impacto-y-problemas-de-defer}
+
+\subsection{Carga asíncrona de estilos: ¿es viable?}\label{subsec:carga-asincrona-de-estilos}
 
 \end{document}
