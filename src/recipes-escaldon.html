@@ -13,9 +13,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sankofa+Display&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/globals.css">
     <link rel="stylesheet" href="./components/header.css">
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="./components/typography.css">
     <link rel="stylesheet" href="./components/recipe-hero.css">
     <link rel="stylesheet" href="./components/recipe-details.css">
+    <link rel=""preload" as="image" href="./assets/recipes/escaldon/featured/squared.jpg?as=webp&width=700">
     <script src="./recipes-guests.js" defer></script>
 </head>
 
@@ -59,13 +61,12 @@
                         delicia para el paladar.</p>
                 </section>
 
-                <iframe class="video" width="560" height="315"
-                    src="https://www.youtube.com/embed/k8YB1JSesJc?si=FTAXxaqkxO8AAKug" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                ></iframe>
+                <div class="youtube-facade" data-yt-id="k8YB1JSesJc" onclick="loadYouTube(this)">
+                    <img src="https://img.youtube.com/vi/k8YB1JSesJc/hqdefault.jpg" alt="Miniatura del vídeo">
+                    <button class="play-btn">
+                        ▶
+                    </button>
+                </div>
 
                 <section class="ingredients">
                     <h2>Ingredientes</h2>

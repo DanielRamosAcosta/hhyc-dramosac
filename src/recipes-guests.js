@@ -13,3 +13,16 @@ document.getElementById("guests").addEventListener("change", (e) => {
     });
   })
 });
+
+function loadYouTube(container) {
+  const id = container.dataset.ytId;
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+  iframe.width = 560;
+  iframe.height = 315;
+  iframe.title = "YouTube video player";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  iframe.classList.add('video');
+  container.replaceWith(iframe);
+}
