@@ -14,12 +14,10 @@ header {
 
   .logo {
     display: block;
-    font-family: "Sankofa Display", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    text-decoration: none;
-    color: var(--color-dark);
+    
+    img {
+      height: 2rem;
+    }
   }
 
   nav  {
