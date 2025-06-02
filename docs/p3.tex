@@ -154,7 +154,26 @@ Este análisis refleja la importancia de aplicar estrategias de optimización en
 
 \subsection{Aplicación de \texttt{loading="lazy"} en imágenes}\label{subsec:loading-lazy}
 
-Se ha realizado un análisis en todas las páginas del sitio para identificar las imágenes que no aparecen en el \textit{viewport} durante la carga inicial. A todas aquellas que no forman parte del contenido visible inmediatamente se les ha aplicado el atributo \texttt{loading="lazy"}.
+Se ha realizado un análisis en todas las páginas del sitio para identificar las imágenes que no aparecen en el \textit{viewport} durante la carga inicial. A todas aquellas que no forman parte del contenido visible inmediatamente se les ha aplicado el atributo \texttt{loading="lazy"} como se muestra en la Figura~\ref{fig:loading-lazy}.
+
+\begin{figure}[h!]
+\begin{minted}{html}
+<img
+    src="./assets/fogon.jpg?as=webp&width=362"
+    loading="lazy"
+    srcset="
+        ./assets/fogon.jpg?as=webp&width=362 362w,
+        ./assets/fogon.jpg?as=webp&width=600 600w,
+        ./assets/fogon.jpg?as=webp&width=768 768w,
+        ./assets/fogon.jpg?as=webp&width=1024 1024w
+    "
+    sizes="(min-width: 1920px) 342px, (min-width: 1024px) ..."
+    alt="Plato de comida canaria típica con carne a la ..."
+>
+\end{minted}
+\caption{Ejemplo del uso de \texttt{loading="lazy"} en una imagen.}
+\label{fig:loading-lazy}
+\end{figure}
 
 Este atributo permite al navegador aplazar la descarga de estas imágenes hasta que el usuario haga scroll y se acerque a su posición en la página. De esta forma, se reduce la cantidad de recursos cargados de forma anticipada, lo cual disminuye el tiempo de carga inicial y mejora el rendimiento general del sitio.
 
@@ -162,7 +181,15 @@ Este atributo permite al navegador aplazar la descarga de estas imágenes hasta 
 
 En este proyecto, la carga de scripts no representaba un gran impacto en el rendimiento, ya que no se utilizan archivos JavaScript especialmente pesados. Aun así, se han aplicado mejoras para optimizar su carga.
 
-Concretamente, se ha añadido el atributo \texttt{defer} a todos los scripts que no eran críticos para el renderizado inicial de la página. Este atributo permite que los scripts se descarguen en paralelo durante la carga del HTML, pero se ejecuten únicamente una vez que el árbol DOM esté completamente construido.
+Concretamente, se ha añadido el atributo \texttt{defer} a todos los scripts (como se observa en la Figura~\ref{fig:defer-script}) que no eran críticos para el renderizado inicial de la página. Este atributo permite que los scripts se descarguen en paralelo durante la carga del HTML, pero se ejecuten únicamente una vez que el árbol DOM esté completamente construido.
+
+\begin{figure}[h!]
+\begin{minted}{html}
+<script src="./recipes-guests.js" defer></script>
+\end{minted}
+\caption{Ejemplo del uso de \texttt{defer} en un script.}
+\label{fig:defer-script}
+\end{figure}
 
 Se optó por \texttt{defer} en lugar de otras opciones como \texttt{async}, ya que todos los scripts dependen de elementos del DOM (ya sea para leerlos o para añadirles eventos), por lo que es necesario que el DOM esté cargado antes de su evaluación.
 
@@ -265,9 +292,24 @@ En el caso de esta web en particular, todos los scripts interactúan con el DOM 
 \textit{No hemos hecho carga asíncrona de estilos. \textquestiondown Crees que se podría hacer? \textquestiondown Qué problemas podríamos tener? Razona tu respuesta.}
 \end{quotation}
 
-La carga asíncrona de hojas de estilo es técnicamente posible mediante técnicas como \texttt{media="print"} o \texttt{rel="preload"} seguido de su activación mediante JavaScript. Sin embargo, estas prácticas pueden tener ciertos riesgos.
+La carga asíncrona de hojas de estilo es técnicamente posible mediante técnicas como \texttt{media="print"} o \texttt{rel="preload"} seguido de su activación mediante JavaScript. 
 
-El principal inconveniente es la posibilidad de un \textit{flash of unstyled content} (FOUC), en el que el usuario visualiza el contenido sin estilos aplicados durante un breve instante. Esto puede generar una experiencia negativa y una percepción de baja calidad.
+\begin{figure}[h!]
+\begin{minted}{html}
+<link
+    href="mystyles.css"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+>
+\end{minted}
+\caption{Ejemplo de carga asíncrona de estilos con \texttt{media="print"}.}
+\label{fig:media-print}
+\end{figure}
+
+Sin embargo, estas prácticas pueden tener ciertos riesgos.
+
+El principal inconveniente es la posibilidad de un \textit{flash of unstyled content} (FOUC), en el que el usuario visualiza el contenido sin estilos aplicados durante un breve instante. Esto puede generar una experiencia negativa y una percepción de baja calidad. En este \href{https://www.youtube.com/shorts/pXfxXVpg4Qk}{vídeo} se puede ver un ejemplo de FOUC.
 
 Respecto a este proyecto, no se han incluido carga asíncrona de estilos, excepto para las hojas de estilo de las fuentes tipográficas. En este caso concreto, se ha considerado aceptable un posible \textit{flash of unstyled text} (FOUT), ya que se han definido buenos \textit{fallbacks} tipográficos y el impacto visual es mínimo. Esta decisión permite optimizar el rendimiento sin comprometer gravemente la estética del sitio.
 
